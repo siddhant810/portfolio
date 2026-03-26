@@ -772,20 +772,39 @@
        NAVBAR
        ========================================================= -->
   <nav>
-    <a href="index.html" class="nav-logo">SG<span>.</span></a>
+  <a href="index.html" class="nav-logo">SG<span>.</span></a>
 
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Work</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
-      </ul>
+  <div class="nav-right">
+    <!-- Desktop Nav -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" class="active">Work</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+    </ul>
 
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode"></button>
-    </div>
-  </nav>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle"></button>
+
+    <!-- Hamburger -->
+    <button class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <a href="index.html" class="mobile-link">Home</a>
+    <a href="about.html" class="mobile-link">About</a>
+    <a href="projects.html" class="mobile-link active">Work</a>
+    <a href="skills.html" class="mobile-link">Skills</a>
+    <a href="contact.html" class="mobile-link mobile-cta">Let's Talk</a>
+  </div>
+</div>
 
   <!-- =========================================================
        PAGE HEADER
