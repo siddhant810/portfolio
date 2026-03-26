@@ -498,12 +498,16 @@ body.light-mode .theme-toggle::before {
 }
 
 .menu-toggle span {
-  width: 18px;
-  height: 2px;
-  background: var(--text);
+  width: 20px;
+  height: 2.5px;
+  background: #ffffff;
   border-radius: 100px;
   transition: all 0.3s ease;
   display: block;
+}
+
+body.light-mode .menu-toggle span {
+  background: #111827;
 }
 
 /* Active Hamburger Animation */
