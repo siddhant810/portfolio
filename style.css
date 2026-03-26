@@ -471,6 +471,125 @@ body.light-mode .theme-toggle::before {
   content: '☀️';
 }
 
+/* =========================
+   HAMBURGER MENU
+========================= */
+.menu-toggle {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  flex-shrink: 0;
+  box-shadow: var(--card-shadow);
+}
+
+.menu-toggle:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.menu-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+/* Active Hamburger Animation */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   MOBILE MENU OVERLAY
+========================= */
+.mobile-menu {
+  position: fixed;
+  top: 78px;
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-16px);
+  transition: all 0.35s ease;
+  padding: 0 20px 24px;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+  border-color: var(--accent);
+  background: rgba(108,99,255,0.08);
+  color: var(--accent);
+}
+
+.mobile-cta {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+.mobile-cta:hover {
+  background: #7d76ff;
+  color: #fff;
+}
+
+/* Prevent scroll when menu open */
+body.menu-open {
+  overflow: hidden;
+}
+
 body.light-mode .hero-tag,
 body.light-mode .exp-period,
 body.light-mode .tl-period {
@@ -565,9 +684,8 @@ body.light-mode .cs-overlay {
     gap: 10px;
   }
 
-  .nav-cta {
-    padding: 10px 16px !important;
-    font-size: 12px !important;
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .theme-toggle {
@@ -663,12 +781,6 @@ body.light-mode .cs-overlay {
     gap: 8px;
   }
 
-  .nav-cta {
-    padding: 9px 14px !important;
-    font-size: 11.5px !important;
-    border-radius: 999px;
-  }
-
   .theme-toggle {
     width: 46px;
     height: 26px;
@@ -683,6 +795,27 @@ body.light-mode .cs-overlay {
 
   body.light-mode .theme-toggle::before {
     transform: translateX(20px);
+  }
+
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .menu-toggle span {
+    width: 17px;
+  }
+
+  .mobile-menu {
+    top: 72px;
+    padding: 0 16px 20px;
+  }
+
+  .mobile-link {
+    min-height: 50px;
+    font-size: 14px;
+    border-radius: 14px;
   }
 
   section {
@@ -750,11 +883,6 @@ body.light-mode .cs-overlay {
     padding: 12px 12px;
   }
 
-  .nav-cta {
-    padding: 8px 12px !important;
-    font-size: 11px !important;
-  }
-
   .theme-toggle {
     width: 42px;
     height: 24px;
@@ -768,6 +896,27 @@ body.light-mode .cs-overlay {
 
   body.light-mode .theme-toggle::before {
     transform: translateX(18px);
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .menu-toggle span {
+    width: 16px;
+  }
+
+  .mobile-menu {
+    top: 68px;
+    padding: 0 12px 18px;
+  }
+
+  .mobile-link {
+    min-height: 48px;
+    font-size: 13.5px;
+    padding: 12px 14px;
   }
 
   section {
