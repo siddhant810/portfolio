@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About — Siddhant Gaikwad</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
@@ -56,12 +57,12 @@
       padding: 32px; transition: all 0.3s;
     }
     .timeline-card:hover { border-color: var(--border2); transform: translateX(6px); }
-    .tl-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .tl-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 12px; }
     .tl-role { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: -0.4px; }
     .tl-period {
       font-family: var(--font-mono); font-size: 11px; color: var(--accent);
       background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2);
-      padding: 4px 12px; border-radius: 100px;
+      padding: 4px 12px; border-radius: 100px; white-space: nowrap;
     }
     .tl-company { font-size: 13.5px; color: var(--text-muted); margin-bottom: 18px; }
     .tl-bullets { list-style: none; }
@@ -132,12 +133,185 @@
     .p-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
     .p-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
 
-    @media(max-width:900px){
-      .about-hero-grid, .edu-grid { grid-template-columns: 1fr; }
-      .process-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
-      .process-grid::before { display: none; }
-      .cert-card { flex-direction: column; padding: 28px; }
-      .profile-card { position: static; }
+    /* =========================
+       MOBILE OPTIMISATION ONLY
+    ========================= */
+    @media (max-width: 1100px) {
+      .about-hero-grid { gap: 48px; }
+      .cert-card { max-width: 100%; }
+    }
+
+    @media (max-width: 900px) {
+      .about-hero-grid,
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .process-grid::before {
+        display: none;
+      }
+
+      .cert-card {
+        flex-direction: column;
+        padding: 28px;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .profile-card {
+        position: static;
+      }
+
+      .tl-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cert-body > div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-hero-grid {
+        gap: 32px;
+      }
+
+      .about-intro {
+        font-size: 15.5px;
+        line-height: 1.85;
+      }
+
+      .about-quote-block {
+        font-size: 18px;
+        padding-left: 16px;
+        margin: 28px 0;
+      }
+
+      .profile-card {
+        padding: 24px;
+        border-radius: 20px;
+      }
+
+      .profile-avatar {
+        width: 72px;
+        height: 72px;
+        font-size: 28px;
+      }
+
+      .profile-name {
+        font-size: 20px;
+      }
+
+      .profile-role {
+        font-size: 12px;
+      }
+
+      .timeline-card,
+      .edu-card,
+      .cert-card {
+        padding: 22px;
+      }
+
+      .exp-timeline {
+        padding-left: 28px;
+      }
+
+      .timeline-dot {
+        left: -32px;
+      }
+
+      .tl-role {
+        font-size: 16px;
+      }
+
+      .tl-company,
+      .edu-school,
+      .cert-meta {
+        font-size: 13px;
+      }
+
+      .tl-bullets li {
+        font-size: 13.5px;
+      }
+
+      .edu-degree {
+        font-size: 17px;
+      }
+
+      .cert-icon {
+        width: 72px;
+        height: 72px;
+        font-size: 32px;
+      }
+
+      .cert-name {
+        font-size: 18px;
+        line-height: 1.35;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-top: 40px;
+      }
+
+      .p-step {
+        padding: 0;
+      }
+
+      .p-num {
+        width: 68px;
+        height: 68px;
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+
+      .p-title {
+        font-size: 15px;
+      }
+
+      .p-desc {
+        font-size: 13px;
+      }
+
+      .cert-body > div:last-child {
+        width: 100%;
+      }
+
+      .cert-body .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .about-intro {
+        font-size: 14.5px;
+      }
+
+      .about-quote-block {
+        font-size: 17px;
+      }
+
+      .profile-card,
+      .timeline-card,
+      .edu-card,
+      .cert-card {
+        padding: 20px;
+      }
+
+      .cert-name {
+        font-size: 17px;
+      }
     }
   </style>
 </head>
@@ -145,21 +319,40 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- NAVBAR -->
   <nav>
-  <a href="index.html" class="nav-logo">SG<span>.</span></a>
+    <a href="index.html" class="nav-logo">SG<span>.</span></a>
 
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Work</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Work</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+      </ul>
 
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode"></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode"></button>
+
+      <!-- HAMBURGER -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="about.html" class="mobile-link active">About</a>
+      <a href="projects.html" class="mobile-link">Work</a>
+      <a href="skills.html" class="mobile-link">Skills</a>
+      <a href="contact.html" class="mobile-link mobile-cta">Let's Talk</a>
+    </div>
   </div>
-</nav>
 
   <div class="page-header">
     <div class="page-header-bg"></div>
@@ -271,7 +464,18 @@
           <div class="cert-issuer">Google · Coursera</div>
           <div class="cert-name">Google UX Design Professional Certificate (v2)</div>
           <div class="cert-meta">Issued August 2025 · Covers UX research, wireframing, prototyping, usability testing & design sprints</div>
-          <div class="cert-badge">✓ Verified Certificate</div>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+            <div class="cert-badge">✓ Verified Certificate</div>
+
+            <a href="https://www.credly.com/badges/98ccea83-1ccc-48c0-b851-64091e5fe8ac/linked_in?t=t0tuvj"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-secondary"
+               style="padding:10px 18px; font-size:13px;">
+              Verify on Credly ↗
+            </a>
+          </div>
         </div>
       </div>
     </div>

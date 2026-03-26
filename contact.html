@@ -268,12 +268,141 @@
       line-height: 1.6;
     }
 
-    @media(max-width:900px){
+    /* =========================
+       MOBILE OPTIMISATION ONLY
+    ========================= */
+    @media (max-width: 900px){
       #contact-main { padding: 60px 20px 90px; }
-      .contact-layout { grid-template-columns: 1fr; gap: 48px; }
-      .form-row { grid-template-columns: 1fr; }
-      .location-card { flex-direction: column; text-align: center; padding: 28px; }
-      .contact-form-card { padding: 28px; }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .location-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 28px;
+      }
+
+      .contact-form-card {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 600px){
+      #contact-main { padding: 50px 16px 80px; }
+
+      .contact-desc {
+        font-size: 15.5px;
+        line-height: 1.8;
+        margin-bottom: 32px;
+      }
+
+      .contact-channels {
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .ch-item {
+        padding: 14px 16px;
+        gap: 14px;
+      }
+
+      .ch-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+      }
+
+      .ch-value {
+        font-size: 13.5px;
+      }
+
+      .avail-banner {
+        padding: 16px 18px;
+        align-items: flex-start;
+      }
+
+      .avail-banner-text {
+        font-size: 13.5px;
+        line-height: 1.7;
+      }
+
+      .contact-form-card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      .form-title {
+        font-size: 20px;
+      }
+
+      .form-sub {
+        font-size: 13.5px;
+        margin-bottom: 26px;
+      }
+
+      .form-input, .form-textarea {
+        font-size: 14px;
+        padding: 12px 14px;
+      }
+
+      .form-textarea {
+        min-height: 130px;
+      }
+
+      .form-submit {
+        font-size: 15px;
+        padding: 14px;
+      }
+
+      .form-note {
+        font-size: 11px;
+        line-height: 1.7;
+      }
+
+      .location-card {
+        padding: 24px;
+        gap: 20px;
+      }
+
+      .location-map {
+        width: 82px;
+        height: 82px;
+        font-size: 34px;
+      }
+
+      .location-title {
+        font-size: 18px;
+      }
+
+      .location-sub {
+        font-size: 13.5px;
+      }
+    }
+
+    @media (max-width: 380px){
+      #contact-main { padding: 44px 12px 70px; }
+
+      .contact-form-card,
+      .location-card {
+        padding: 20px;
+      }
+
+      .ch-item {
+        padding: 13px 14px;
+      }
+
+      .contact-desc,
+      .avail-banner-text,
+      .location-sub {
+        font-size: 13.5px;
+      }
     }
   </style>
 </head>
@@ -281,6 +410,7 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- NAVBAR -->
   <nav>
     <a href="index.html" class="nav-logo">SG<span>.</span></a>
 
@@ -290,12 +420,30 @@
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Work</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+        <li><a href="contact.html" class="active nav-cta">Let's Talk</a></li>
       </ul>
 
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode"></button>
+
+      <!-- HAMBURGER -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="projects.html" class="mobile-link">Work</a>
+      <a href="skills.html" class="mobile-link">Skills</a>
+      <a href="contact.html" class="mobile-link active mobile-cta">Let's Talk</a>
+    </div>
+  </div>
 
   <div class="page-header">
     <div class="page-header-bg"></div>
