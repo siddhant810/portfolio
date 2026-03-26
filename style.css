@@ -7,6 +7,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
+  /* DARK THEME (default) */
   --bg: #0a0a0f;
   --bg2: #0f0f18;
   --surface: #131320;
@@ -20,9 +21,34 @@
   --accent2: #ff6b9d;
   --accent3: #00d4aa;
   --accent-glow: rgba(108,99,255,0.3);
+
+  --nav-bg: rgba(10,10,15,0.85);
+  --card-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  --body-cursor: none;
+
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'DM Mono', monospace;
+}
+
+/* LIGHT THEME */
+body.light-mode {
+  --bg: #f7f8fc;
+  --bg2: #eef1f7;
+  --surface: #ffffff;
+  --surface2: #f4f6fb;
+  --border: rgba(20,20,40,0.08);
+  --border2: rgba(20,20,40,0.14);
+  --text: #111827;
+  --text-muted: #5f6b7a;
+  --text-dim: #94a3b8;
+  --accent: #5b52ff;
+  --accent2: #ff4f8b;
+  --accent3: #00b894;
+  --accent-glow: rgba(91,82,255,0.22);
+
+  --nav-bg: rgba(255,255,255,0.82);
+  --card-shadow: 0 18px 50px rgba(15,23,42,0.08);
 }
 
 html { scroll-behavior: smooth; }
@@ -34,7 +60,8 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
+  cursor: var(--body-cursor);
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 /* SCROLLBAR */
@@ -72,9 +99,9 @@ nav {
   padding: 20px 60px;
   display: flex; align-items: center; justify-content: space-between;
   backdrop-filter: blur(20px);
-  background: rgba(10,10,15,0.85);
+  background: var(--nav-bg);
   border-bottom: 1px solid var(--border);
-  transition: padding 0.3s;
+  transition: padding 0.3s, background 0.35s ease, border-color 0.35s ease;
 }
 .nav-logo {
   font-family: var(--font-display); font-size: 20px; font-weight: 800;
@@ -196,4 +223,120 @@ footer {
   .nav-links { display: none; }
   section, .page-header { padding: 80px 24px; }
   footer { padding: 24px; flex-direction: column; gap: 12px; }
+}
+
+/* =========================
+   THEME TOGGLE
+========================= */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.theme-toggle {
+  width: 54px;
+  height: 30px;
+  border-radius: 100px;
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  transition: all 0.3s ease;
+  box-shadow: var(--card-shadow);
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.theme-toggle::before {
+  content: '🌙';
+  position: absolute;
+  left: 5px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+body.light-mode .theme-toggle::before {
+  transform: translateX(24px);
+  content: '☀️';
+}
+
+body.light-mode .hero-tag,
+body.light-mode .exp-period,
+body.light-mode .tl-period {
+  background: rgba(91,82,255,0.08);
+  border-color: rgba(91,82,255,0.18);
+}
+
+body.light-mode .tool-chip,
+body.light-mode .skill-tag,
+body.light-mode .bpc-tag,
+body.light-mode .sb-tag,
+body.light-mode .cs-tag-item {
+  background: rgba(15,23,42,0.03);
+}
+
+body.light-mode .float-card,
+body.light-mode .exp-card,
+body.light-mode .skill-card,
+body.light-mode .proj-preview-card,
+body.light-mode .big-proj-card,
+body.light-mode .timeline-card,
+body.light-mode .edu-card,
+body.light-mode .cert-card,
+body.light-mode .skill-block,
+body.light-mode .tool-item,
+body.light-mode .soft-card,
+body.light-mode .learn-card,
+body.light-mode .contact-form-card,
+body.light-mode .location-card,
+body.light-mode .profile-card,
+body.light-mode .ch-item {
+  box-shadow: var(--card-shadow);
+}
+
+body.light-mode .hero-name .outline-word,
+body.light-mode .section-title span,
+body.light-mode .cs-title span {
+  -webkit-text-stroke: 1.5px var(--accent);
+}
+
+body.light-mode .cs-overlay {
+  background: rgba(245,247,252,0.96);
+}
+
+/* Mobile */
+@media(max-width: 768px) {
+  .nav-right {
+    gap: 12px;
+  }
+
+  .theme-toggle {
+    width: 50px;
+    height: 28px;
+  }
+
+  .theme-toggle::before {
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  body.light-mode .theme-toggle::before {
+    transform: translateX(22px);
+  }
 }

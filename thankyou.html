@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You — Siddhant Gaikwad</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    .thankyou-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .thankyou-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(108,99,255,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255,107,157,0.06), transparent 28%);
+      pointer-events: none;
+    }
+
+    .thankyou-card {
+      max-width: 760px;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 28px;
+      padding: 60px 40px;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .thankyou-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+
+    .thankyou-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .thankyou-title span {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent);
+    }
+
+    .thankyou-text {
+      color: var(--text-muted);
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 560px;
+      margin: 0 auto 34px;
+      font-weight: 300;
+    }
+
+    .thankyou-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .thankyou-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      min-width: 180px;
+    }
+
+    .thankyou-btn.primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: 1px solid transparent;
+    }
+
+    .thankyou-btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(108, 99, 255, 0.3);
+    }
+
+    .thankyou-btn.secondary {
+      color: var(--text);
+      background: var(--surface);
+      border: 1px solid var(--border2);
+    }
+
+    .thankyou-btn.secondary:hover {
+      transform: translateY(-3px);
+      border-color: rgba(108,99,255,0.35);
+      box-shadow: 0 12px 30px rgba(108, 99, 255, 0.15);
+    }
+
+    @media(max-width:768px){
+      .thankyou-card {
+        padding: 42px 24px;
+      }
+
+      .thankyou-actions {
+        flex-direction: column;
+      }
+
+      .thankyou-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div class="thankyou-wrap">
+    <div class="thankyou-card">
+      <span class="thankyou-tag">Message Received</span>
+
+      <h1 class="thankyou-title">
+        Message <span>Sent</span>
+      </h1>
+
+      <p class="thankyou-text">
+        Thanks for reaching out. I’ve received your message and I’ll get back to you as soon as possible.
+        Usually within 24 hours.
+      </p>
+
+      <div class="thankyou-actions">
+        <a href="contact.html" class="thankyou-btn secondary">← Back to Contact</a>
+        <a href="index.html" class="thankyou-btn primary">Go to Home →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

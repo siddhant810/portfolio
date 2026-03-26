@@ -1,98 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact — Siddhant Gaikwad</title>
   <link rel="stylesheet" href="style.css"/>
+
   <style>
     #contact-main { padding: 80px 60px 120px; }
     .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
 
     /* Left */
-    .contact-left .big-email {
-      font-family: var(--font-display); font-size: clamp(22px,3vw,38px); font-weight: 800;
-      color: var(--text); letter-spacing: -1px; line-height: 1.2; margin-bottom: 36px; word-break: break-all;
+    .contact-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 48px;
     }
-    .contact-left .big-email a { color: var(--text); text-decoration: none; transition: color 0.2s; }
-    .contact-left .big-email a:hover { color: var(--accent); }
-    .contact-desc { font-size: 17px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 48px; }
-    .contact-desc strong { color: var(--text); font-weight: 500; }
 
-    .contact-channels { display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px; }
-    .ch-item {
-      display: flex; align-items: center; gap: 16px;
-      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
-      padding: 16px 20px; text-decoration: none; transition: all 0.3s; color: var(--text);
+    .contact-desc strong {
+      color: var(--text);
+      font-weight: 500;
     }
-    .ch-item:hover { border-color: rgba(108,99,255,0.3); background: rgba(108,99,255,0.06); transform: translateX(6px); }
-    .ch-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .ch-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      text-decoration: none;
+      transition: all 0.3s;
+      color: var(--text);
+    }
+
+    .ch-item:hover {
+      border-color: rgba(108,99,255,0.3);
+      background: rgba(108,99,255,0.06);
+      transform: translateX(6px);
+    }
+
+    .ch-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
     .ch-icon.email { background: rgba(108,99,255,0.15); }
     .ch-icon.phone { background: rgba(0,212,170,0.15); }
     .ch-icon.linkedin { background: rgba(0,119,181,0.2); }
     .ch-icon.portfolio { background: rgba(255,107,157,0.15); }
+
     .ch-text { flex: 1; }
-    .ch-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 2px; }
-    .ch-value { font-size: 14px; color: var(--text); font-weight: 500; }
-    .ch-arrow { color: var(--text-dim); font-size: 16px; transition: color 0.2s, transform 0.2s; }
-    .ch-item:hover .ch-arrow { color: var(--accent); transform: translateX(4px); }
+
+    .ch-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .ch-value {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .ch-arrow {
+      color: var(--text-dim);
+      font-size: 16px;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .ch-item:hover .ch-arrow {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
 
     .avail-banner {
-      background: rgba(0,212,170,0.07); border: 1px solid rgba(0,212,170,0.2); border-radius: 16px;
-      padding: 20px 24px; display: flex; align-items: center; gap: 14px;
+      background: rgba(0,212,170,0.07);
+      border: 1px solid rgba(0,212,170,0.2);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
-    .avail-banner-dot { width: 10px; height: 10px; background: var(--accent3); border-radius: 50%; flex-shrink: 0; animation: pulse 2s infinite; }
-    .avail-banner-text { font-size: 14px; color: var(--text-muted); }
-    .avail-banner-text strong { color: var(--accent3); font-weight: 600; }
+
+    .avail-banner-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--accent3);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+
+    .avail-banner-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .avail-banner-text strong {
+      color: var(--accent3);
+      font-weight: 600;
+    }
 
     /* Right - Form */
     .contact-form-card {
-      background: var(--surface); border: 1px solid var(--border2); border-radius: 24px; padding: 44px;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 24px;
+      padding: 44px;
+      box-shadow: var(--card-shadow);
     }
-    .form-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; margin-bottom: 8px; }
-    .form-sub { font-size: 14px; color: var(--text-muted); margin-bottom: 36px; line-height: 1.6; }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .form-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
     .form-group { margin-bottom: 22px; }
-    .form-label { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-dim); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--text-dim);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
     .form-input, .form-textarea {
-      width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      border-radius: 12px; padding: 14px 18px; color: var(--text); font-family: var(--font-body);
-      font-size: 15px; outline: none; transition: all 0.2s; resize: none;
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      outline: none;
+      transition: all 0.2s;
+      resize: none;
     }
-    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
-    .form-input:focus, .form-textarea:focus { border-color: var(--accent); background: rgba(108,99,255,0.05); box-shadow: 0 0 0 3px rgba(108,99,255,0.1); }
-    .form-textarea { min-height: 140px; font-family: var(--font-body); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: var(--text-dim);
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--accent);
+      background: rgba(108,99,255,0.05);
+      box-shadow: 0 0 0 3px rgba(108,99,255,0.1);
+    }
+
+    .form-textarea {
+      min-height: 140px;
+      font-family: var(--font-body);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
     .form-submit {
-      width: 100%; padding: 15px; background: var(--accent); color: #fff;
-      border: none; border-radius: 100px; font-size: 16px; font-weight: 600;
-      font-family: var(--font-body); cursor: none; transition: all 0.3s; margin-top: 8px;
+      width: 100%;
+      padding: 15px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 8px;
     }
-    .form-submit:hover { background: #7d76ff; box-shadow: 0 8px 40px var(--accent-glow); transform: translateY(-2px); }
-    .form-note { font-size: 12px; color: var(--text-dim); text-align: center; margin-top: 14px; font-family: var(--font-mono); }
-    .form-success {
-      display: none; background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.25);
-      border-radius: 12px; padding: 16px 20px; margin-top: 16px;
-      font-size: 14px; color: var(--accent3); text-align: center;
+
+    .form-submit:hover {
+      background: #7d76ff;
+      box-shadow: 0 8px 40px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      margin-top: 14px;
+      font-family: var(--font-mono);
     }
 
     /* LOCATION */
     #location { background: var(--bg2); }
+
     .location-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
-      padding: 40px; display: flex; gap: 40px; align-items: center; max-width: 700px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      max-width: 700px;
+      box-shadow: var(--card-shadow);
     }
+
     .location-map {
-      width: 100px; height: 100px; border-radius: 16px;
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
       background: linear-gradient(135deg, rgba(108,99,255,0.2), rgba(0,212,170,0.15));
       border: 1px solid var(--border2);
-      display: flex; align-items: center; justify-content: center; font-size: 40px; flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      flex-shrink: 0;
     }
-    .location-title { font-family: var(--font-display); font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.4px; margin-bottom: 8px; }
-    .location-sub { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    .location-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+
+    .location-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
     @media(max-width:900px){
+      #contact-main { padding: 60px 20px 90px; }
       .contact-layout { grid-template-columns: 1fr; gap: 48px; }
       .form-row { grid-template-columns: 1fr; }
       .location-card { flex-direction: column; text-align: center; padding: 28px; }
+      .contact-form-card { padding: 28px; }
     }
   </style>
 </head>
@@ -102,32 +283,49 @@
 
   <nav>
     <a href="index.html" class="nav-logo">SG<span>.</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Work</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
-    </ul>
+
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Work</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode"></button>
+    </div>
   </nav>
 
   <div class="page-header">
     <div class="page-header-bg"></div>
     <div class="page-header-grid"></div>
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a><span>/</span><span>Contact</span>
+    </div>
+
     <span class="section-tag">Get In Touch</span>
-    <h1 class="section-title" style="font-size:clamp(46px,6vw,80px);">Let's build<br>something <span>great</span></h1>
-    <p style="color:var(--text-muted);font-size:17px;font-weight:300;max-width:480px;margin-top:16px;line-height:1.7;">Open to full-time UI/UX roles, freelance projects, and interesting collaborations. If you have an idea — I want to hear it.</p>
+
+    <h1 class="section-title" style="font-size:clamp(46px,6vw,80px);">
+      Let's build<br>something <span>great</span>
+    </h1>
+
+    <p style="color:var(--text-muted);font-size:17px;font-weight:300;max-width:480px;margin-top:16px;line-height:1.7;">
+      Open to full-time UI/UX roles, freelance projects, and interesting collaborations. If you have an idea — I want to hear it.
+    </p>
   </div>
 
   <section id="contact-main">
     <div class="contact-layout">
+
       <!-- LEFT -->
       <div class="reveal">
-        <div class="big-email">
-          <a href="mailto:siddhantonwork@gmail.com">siddhantonwork<br>@gmail.com</a>
-        </div>
-        <p class="contact-desc">I'm <strong>Siddhant Gaikwad</strong>, a UI/UX and Graphic Designer based in Ambernath, Maharashtra. I'm actively looking for full-time opportunities and take on select freelance projects. Response time is usually <strong>within 24 hours</strong>.</p>
+        <p class="contact-desc">
+          I'm <strong>Siddhant Gaikwad</strong>, a UI/UX and Graphic Designer based in Ambernath, Maharashtra.
+          I'm actively looking for full-time opportunities and take on select freelance projects.
+          Response time is usually <strong>within 24 hours</strong>.
+        </p>
 
         <div class="contact-channels">
           <a href="mailto:siddhantonwork@gmail.com" class="ch-item">
@@ -138,6 +336,7 @@
             </div>
             <span class="ch-arrow">→</span>
           </a>
+
           <a href="tel:+918767435776" class="ch-item">
             <div class="ch-icon phone">📞</div>
             <div class="ch-text">
@@ -146,19 +345,21 @@
             </div>
             <span class="ch-arrow">→</span>
           </a>
-          <a href="https://linkedin.com/in/siddhant-gaikwad" target="_blank" class="ch-item">
+
+          <a href="https://www.linkedin.com/in/siddhant-gaikwad-a028a3271/" target="_blank" rel="noopener noreferrer" class="ch-item">
             <div class="ch-icon linkedin">💼</div>
             <div class="ch-text">
               <div class="ch-label">LinkedIn</div>
-              <div class="ch-value">linkedin.com/in/siddhant-gaikwad</div>
+              <div class="ch-value">linkedin.com/in/siddhant-gaikwad-a028a3271</div>
             </div>
             <span class="ch-arrow">→</span>
           </a>
-          <a href="#" class="ch-item">
+
+          <a href="https://drive.google.com/drive/folders/1khdMNfrOngfyCC2_Dh0tD9dKHTYjHYCh?usp=drive_link" target="_blank" rel="noopener noreferrer" class="ch-item">
             <div class="ch-icon portfolio">📁</div>
             <div class="ch-text">
-              <div class="ch-label">Portfolio (Figma)</div>
-              <div class="ch-value">Google Drive Portfolio Link</div>
+              <div class="ch-label">Portfolio Work</div>
+              <div class="ch-value">View Google Drive Portfolio</div>
             </div>
             <span class="ch-arrow">→</span>
           </a>
@@ -166,7 +367,9 @@
 
         <div class="avail-banner">
           <span class="avail-banner-dot"></span>
-          <span class="avail-banner-text"><strong>Open to Work</strong> — Available for full-time roles & freelance projects. Remote-friendly.</span>
+          <span class="avail-banner-text">
+            <strong>Open to Work</strong> — Available for full-time roles & freelance projects. Remote-friendly.
+          </span>
         </div>
       </div>
 
@@ -174,29 +377,41 @@
       <div class="reveal reveal-d1">
         <div class="contact-form-card">
           <div class="form-title">Send a Message</div>
-          <div class="form-sub">Tell me about your project, role, or just say hello. I read every message personally.</div>
-          <form id="contactForm">
+          <div class="form-sub">
+            Tell me about your project, role, or just say hello. I read every message personally.
+          </div>
+
+          <form action="https://formsubmit.co/siddhantonwork@gmail.com" method="POST">
+            <!-- Hidden FormSubmit settings -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://siddhant810.github.io/portfolio/thankyou.html">
+
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">Your Name</label>
-                <input type="text" class="form-input" placeholder="e.g. Rahul Sharma" required/>
+                <label class="form-label" for="name">Your Name</label>
+                <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Rahul Sharma" required>
               </div>
+
               <div class="form-group">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" placeholder="hello@company.com" required/>
+                <label class="form-label" for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-input" placeholder="hello@company.com" required>
               </div>
             </div>
+
             <div class="form-group">
-              <label class="form-label">Subject</label>
-              <input type="text" class="form-input" placeholder="e.g. UI/UX Role at XYZ Company"/>
+              <label class="form-label" for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-input" placeholder="e.g. UI/UX Role at XYZ Company" required>
             </div>
+
             <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea class="form-textarea" placeholder="Tell me about your project, timeline, and what you're looking for..." required></textarea>
+              <label class="form-label" for="message">Message</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, timeline, and what you're looking for..." required></textarea>
             </div>
+
             <button type="submit" class="form-submit">Send Message →</button>
             <p class="form-note">// No spam. No newsletters. Just a real conversation.</p>
-            <div class="form-success" id="formSuccess">✓ Message received! I'll get back to you within 24 hours.</div>
           </form>
         </div>
       </div>
@@ -209,11 +424,15 @@
       <span class="section-tag">Location</span>
       <h2 class="section-title">Where I'm<br><span>Based</span></h2>
     </div>
+
     <div class="location-card reveal">
       <div class="location-map">📍</div>
       <div>
         <div class="location-title">Ambernath, Maharashtra, India</div>
-        <div class="location-sub">Currently based in the Mumbai Metropolitan Region. Open to opportunities in Mumbai, Thane, Pune, and fully remote roles across India and globally. Available for on-site, hybrid, or remote work.</div>
+        <div class="location-sub">
+          Currently based in the Mumbai Metropolitan Region. Open to opportunities in Mumbai, Thane, Pune,
+          and fully remote roles across India and globally. Available for on-site, hybrid, or remote work.
+        </div>
       </div>
     </div>
   </section>
@@ -221,18 +440,12 @@
   <footer>
     <p class="footer-copy">© 2025 Siddhant Gaikwad <span>·</span> Designed with intention</p>
     <div class="footer-links">
-      <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Work</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Work</a>
     </div>
   </footer>
 
   <script src="main.js"></script>
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('formSuccess').style.display = 'block';
-      this.querySelectorAll('input, textarea').forEach(el => el.value = '');
-      setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
-    });
-  </script>
 </body>
 </html>
