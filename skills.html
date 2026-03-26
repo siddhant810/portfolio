@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills — Siddhant Gaikwad</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ===== SKILL CATEGORIES ===== */
+    #skill-categories { padding: 80px 60px; }
+    .skill-main-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .skill-block {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 22px;
+      padding: 36px; transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .skill-block::after {
+      content: attr(data-icon); position: absolute; bottom: -10px; right: -10px;
+      font-size: 80px; opacity: 0.04; pointer-events: none; line-height: 1;
+    }
+    .skill-block:hover { border-color: var(--border2); transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+    .sb-icon { font-size: 30px; margin-bottom: 16px; display: block; }
+    .sb-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 12px; letter-spacing: -0.4px; }
+    .sb-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 20px; font-weight: 300; }
+    .sb-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sb-tag {
+      font-size: 12px; color: var(--text-muted); background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); padding: 5px 13px; border-radius: 100px; transition: all 0.2s;
+    }
+    .sb-tag:hover { background: rgba(108,99,255,0.12); border-color: var(--accent); color: var(--accent); }
+
+    /* ===== TOOLS SECTION ===== */
+    #tools { background: var(--bg2); }
+    .tools-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+    .tool-item {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+      padding: 28px 20px; text-align: center; transition: all 0.3s;
+    }
+    .tool-item:hover { border-color: rgba(108,99,255,0.3); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+    .tool-emoji { font-size: 36px; display: block; margin-bottom: 12px; }
+    .tool-name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .tool-level { font-family: var(--font-mono); font-size: 10.5px; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
+    .tool-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 14px; overflow: hidden; }
+    .tool-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 2px; transition: width 1.2s ease; }
+
+    /* ===== SOFT SKILLS ===== */
+    #soft-skills { }
+    .soft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .soft-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+      padding: 28px; display: flex; gap: 20px; align-items: flex-start; transition: all 0.3s;
+    }
+    .soft-card:hover { border-color: var(--border2); transform: translateX(4px); }
+    .soft-icon { font-size: 28px; flex-shrink: 0; }
+    .soft-content { flex: 1; }
+    .soft-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: -0.3px; }
+    .soft-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+
+    /* ===== LEARNING ===== */
+    #learning { background: var(--bg2); }
+    .learn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    .learn-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+      padding: 28px; transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .learn-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .learn-card:nth-child(1)::before { background: linear-gradient(90deg,var(--accent),var(--accent2)); }
+    .learn-card:nth-child(2)::before { background: linear-gradient(90deg,var(--accent2),var(--accent3)); }
+    .learn-card:nth-child(3)::before { background: linear-gradient(90deg,var(--accent3),var(--accent)); }
+    .learn-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .learn-card:hover::before { opacity: 1; }
+    .learn-status {
+      font-family: var(--font-mono); font-size: 10px; color: var(--accent3); letter-spacing: 1.5px;
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .learn-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; margin-bottom: 8px; }
+    .learn-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
+
+    @media(max-width:900px){
+      .skill-main-grid, .tools-row, .learn-grid { grid-template-columns: 1fr 1fr; }
+      .soft-grid { grid-template-columns: 1fr; }
+    }
+    @media(max-width:600px){
+      .skill-main-grid, .tools-row, .learn-grid, .soft-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">SG<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Work</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="page-header-grid"></div>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Skills</span></div>
+    <span class="section-tag">Capabilities</span>
+    <h1 class="section-title" style="font-size:clamp(46px,6vw,80px);">Skills &<br><span>Expertise</span></h1>
+    <p style="color:var(--text-muted);font-size:17px;font-weight:300;max-width:480px;margin-top:16px;line-height:1.7;">A full view of my design capabilities — from core UX skills to visual tools and soft skills.</p>
+  </div>
+
+  <!-- SKILL CATEGORIES -->
+  <section id="skill-categories">
+    <div class="reveal">
+      <span class="section-tag">Core Skills</span>
+      <h2 class="section-title">What I<br><span>Design</span></h2>
+      <p class="section-sub">Each category represents a genuine area of practice — not just buzzwords.</p>
+    </div>
+    <div class="skill-main-grid reveal">
+      <div class="skill-block" data-icon="🎨">
+        <span class="sb-icon">🎨</span>
+        <h3 class="sb-title">UI Design</h3>
+        <p class="sb-desc">Creating pixel-perfect visual interfaces with strong typography, colour systems, and micro-interaction design that's both beautiful and functional.</p>
+        <div class="sb-tags"><span class="sb-tag">Visual Hierarchy</span><span class="sb-tag">Typography</span><span class="sb-tag">Colour Systems</span><span class="sb-tag">Layout Design</span><span class="sb-tag">Dark/Light Themes</span></div>
+      </div>
+      <div class="skill-block" data-icon="🔍">
+        <span class="sb-icon">🔍</span>
+        <h3 class="sb-title">UX Research</h3>
+        <p class="sb-desc">Understanding users through research methodologies — interviews, surveys, competitive analysis, and usability testing — to inform design decisions with evidence.</p>
+        <div class="sb-tags"><span class="sb-tag">User Interviews</span><span class="sb-tag">Competitive Analysis</span><span class="sb-tag">Usability Testing</span><span class="sb-tag">Empathy Mapping</span></div>
+      </div>
+      <div class="skill-block" data-icon="📐">
+        <span class="sb-icon">📐</span>
+        <h3 class="sb-title">Wireframing & Prototyping</h3>
+        <p class="sb-desc">Moving from rough sketches to high-fidelity interactive Figma prototypes — quickly testing ideas before committing to the final design.</p>
+        <div class="sb-tags"><span class="sb-tag">Lo-fi Wireframes</span><span class="sb-tag">Hi-fi Prototypes</span><span class="sb-tag">User Flows</span><span class="sb-tag">Interactive Figma</span></div>
+      </div>
+      <div class="skill-block" data-icon="🗺">
+        <span class="sb-icon">🗺️</span>
+        <h3 class="sb-title">Information Architecture</h3>
+        <p class="sb-desc">Structuring complex products — designing clear navigation systems, content hierarchies, and mental models that users intuitively understand.</p>
+        <div class="sb-tags"><span class="sb-tag">Site Mapping</span><span class="sb-tag">Navigation Design</span><span class="sb-tag">Card Sorting</span><span class="sb-tag">IA Diagrams</span></div>
+      </div>
+      <div class="skill-block" data-icon="✦">
+        <span class="sb-icon">✦</span>
+        <h3 class="sb-title">Interaction Design</h3>
+        <p class="sb-desc">Defining how elements respond to user actions — transitions, animations, states, and feedback that make interfaces feel alive and responsive.</p>
+        <div class="sb-tags"><span class="sb-tag">Micro-interactions</span><span class="sb-tag">Motion Design</span><span class="sb-tag">State Design</span><span class="sb-tag">Feedback Systems</span></div>
+      </div>
+      <div class="skill-block" data-icon="🖋">
+        <span class="sb-icon">🖋️</span>
+        <h3 class="sb-title">Branding & Visual Identity</h3>
+        <p class="sb-desc">Crafting cohesive brand identities — from logo design and colour palettes to full visual systems that communicate a brand's personality across all touchpoints.</p>
+        <div class="sb-tags"><span class="sb-tag">Logo Design</span><span class="sb-tag">Brand Systems</span><span class="sb-tag">Color Palettes</span><span class="sb-tag">Brand Guidelines</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools">
+    <div class="reveal">
+      <span class="section-tag">Tools</span>
+      <h2 class="section-title">Design<br><span>Arsenal</span></h2>
+      <p class="section-sub">The tools I reach for on a daily basis.</p>
+    </div>
+    <div class="tools-row reveal">
+      <div class="tool-item">
+        <span class="tool-emoji">🎯</span>
+        <div class="tool-name">Figma</div>
+        <div class="tool-level">Primary</div>
+        <div class="tool-bar"><div class="tool-bar-fill" data-width="92%" style="width:0%"></div></div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-emoji">🖼️</span>
+        <div class="tool-name">Photoshop</div>
+        <div class="tool-level">Advanced</div>
+        <div class="tool-bar"><div class="tool-bar-fill" data-width="85%" style="width:0%"></div></div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-emoji">✏️</span>
+        <div class="tool-name">Illustrator</div>
+        <div class="tool-level">Advanced</div>
+        <div class="tool-bar"><div class="tool-bar-fill" data-width="80%" style="width:0%"></div></div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-emoji">🎨</span>
+        <div class="tool-name">Canva</div>
+        <div class="tool-level">Expert</div>
+        <div class="tool-bar"><div class="tool-bar-fill" data-width="95%" style="width:0%"></div></div>
+      </div>
+      <div class="tool-item">
+        <span class="tool-emoji">🌐</span>
+        <div class="tool-name">Wix Studio</div>
+        <div class="tool-level">Proficient</div>
+        <div class="tool-bar"><div class="tool-bar-fill" data-width="70%" style="width:0%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT SKILLS -->
+  <section id="soft-skills">
+    <div class="reveal">
+      <span class="section-tag">Soft Skills</span>
+      <h2 class="section-title">Beyond the<br><span>pixels</span></h2>
+      <p class="section-sub">Design is a team sport. These are the non-technical skills that make collaboration actually work.</p>
+    </div>
+    <div class="soft-grid reveal">
+      <div class="soft-card">
+        <span class="soft-icon">🎯</span>
+        <div class="soft-content">
+          <div class="soft-title">Team Leadership</div>
+          <div class="soft-desc">Led the design team for college events and fests as Design Co-Head — managing timelines, delegating tasks, and maintaining creative consistency across contributors.</div>
+        </div>
+      </div>
+      <div class="soft-card">
+        <span class="soft-icon">💬</span>
+        <div class="soft-content">
+          <div class="soft-title">Client Communication</div>
+          <div class="soft-desc">Worked directly with clients at Wagman Digital — presenting concepts, incorporating feedback, and delivering on briefs under tight deadlines without compromising quality.</div>
+        </div>
+      </div>
+      <div class="soft-card">
+        <span class="soft-icon">📋</span>
+        <div class="soft-content">
+          <div class="soft-title">Project Management</div>
+          <div class="soft-desc">Coordinated multiple simultaneous projects — event branding, social media calendars, and client work — keeping all deliverables on track and on brief.</div>
+        </div>
+      </div>
+      <div class="soft-card">
+        <span class="soft-icon">🧠</span>
+        <div class="soft-content">
+          <div class="soft-title">Creative Problem Solving</div>
+          <div class="soft-desc">Whether it's a design challenge or a team conflict, I approach problems with curiosity first — exploring multiple angles before committing to a solution.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENTLY LEARNING -->
+  <section id="learning">
+    <div class="reveal">
+      <span class="section-tag">Growth</span>
+      <h2 class="section-title">Always<br><span>Learning</span></h2>
+      <p class="section-sub">Skills I'm actively deepening and new areas I'm exploring.</p>
+    </div>
+    <div class="learn-grid reveal">
+      <div class="learn-card">
+        <div class="learn-status">● Active</div>
+        <div class="learn-title">Advanced Figma Prototyping</div>
+        <div class="learn-desc">Exploring variables, advanced component states, and interactive prototyping techniques to create truly lifelike prototype experiences.</div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-status">● Active</div>
+        <div class="learn-title">UX Writing</div>
+        <div class="learn-desc">Learning how to write better microcopy — error messages, CTAs, tooltips, and onboarding text that guide without friction.</div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-status">○ Upcoming</div>
+        <div class="learn-title">Motion Design</div>
+        <div class="learn-desc">Planning to dive deeper into After Effects and Figma's motion capabilities to bring UI transitions and loading states to life.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-copy">© 2025 Siddhant Gaikwad <span>·</span> Designed with intention</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="projects.html">Work</a><a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Animate tool bars when visible
+    const bars = document.querySelectorAll('.tool-bar-fill');
+    const barObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.width = e.target.dataset.width; }
+      });
+    }, { threshold: 0.5 });
+    bars.forEach(b => barObserver.observe(b));
+  </script>
+</body>
+</html>
