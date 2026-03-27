@@ -949,3 +949,45 @@ body.light-mode .cs-overlay {
     padding: 20px 12px;
   }
 }
+
+/* =========================================
+   FIX NAVBAR SPACING SHIFT ON MOBILE
+   ========================================= */
+
+nav {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* consistent spacing between toggle + menu */
+}
+
+/* Mobile specific fix */
+@media (max-width: 768px) {
+  nav {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .nav-logo {
+    margin-right: auto; /* push everything to right cleanly */
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  .theme-toggle {
+    margin-right: 0;
+  }
+
+  .menu-toggle {
+    margin-left: 0;
+  }
+}
