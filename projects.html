@@ -760,22 +760,31 @@
     }
 
     .canva-sub-label {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 32px;
+      display: block;
+      position: relative;
+      background: linear-gradient(135deg, var(--accent) 0%, #ff6b9d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      padding-bottom: 16px;
     }
 
     .canva-sub-label::after {
       content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 56px;
+      height: 3px;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--accent), #ff6b9d);
     }
 
     /* --- Poster grid (2-up) --- */
@@ -1064,28 +1073,33 @@
 
     /* ── Carousel Slider ── */
     .canva-carousel-slider {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1;
-      overflow: hidden;
-      background: var(--bg);
-    }
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* better for tall slides */
+  overflow: hidden;
+  background: var(--bg);
+  display: flex;
+  align-items: center; 
+}
 
     .carousel-track {
       display: flex;
       width: 100%;
       height: 100%;
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      align-items: center;
     }
 
     .carousel-track img {
       flex: 0 0 100%;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
       display: block;
       pointer-events: none;
       user-select: none;
+      background: #000;
     }
 
     .cs-arr {
@@ -1345,6 +1359,8 @@
   <section id="project-list">
     <div class="project-cards">
 
+      <div class="canva-sub-label" style="margin-bottom: 40px;">Websites</div>
+
       <!-- PROJECT 1 — FLAVR -->
       <div class="big-proj-card reveal" id="food">
         <div class="bpc-visual bpv-f bpv-screenshot">
@@ -1528,7 +1544,7 @@
       <div class="canva-card-grid">
 
         <!-- SMM Growth Carousel -->
-        <div class="canva-card">
+        <div class="canva-card" onclick="openCarouselLightbox('smm')" style="cursor:pointer;">
           <div class="canva-carousel-slider" id="smm-slider">
             <div class="carousel-track" id="smm-track">
               <img src="assets/carousels/smm-growth/smm_growth_cover.png" alt="SMM Slide 1" loading="lazy" />
@@ -1538,8 +1554,10 @@
               <img src="assets/carousels/smm-growth/smm_growth_05.png" alt="SMM Slide 5" loading="lazy" />
               <img src="assets/carousels/smm-growth/smm_growth_06.png" alt="SMM Slide 6" loading="lazy" />
             </div>
-            <button class="cs-arr cs-arr-l" onclick="slideCarousel('smm',  -1)">&#8249;</button>
-            <button class="cs-arr cs-arr-r" onclick="slideCarousel('smm',   1)">&#8250;</button>
+            <div class="carousel-open-hint">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              Click to expand
+            </div>
             <span class="canva-carousel-badge" id="smm-badge">1 / 6</span>
           </div>
           <div class="canva-poster-caption">
@@ -1549,7 +1567,7 @@
         </div>
 
         <!-- Gaming Releases Carousel -->
-        <div class="canva-card">
+        <div class="canva-card" onclick="openCarouselLightbox('gaming')" style="cursor:pointer;">
           <div class="canva-carousel-slider" id="gaming-slider">
             <div class="carousel-track" id="gaming-track">
               <img src="assets/carousels/gaming-fall/gaming_fall_cover.png" alt="Gaming Slide 1" loading="lazy" />
@@ -1559,8 +1577,10 @@
               <img src="assets/carousels/gaming-fall/gaming_fall_05.png" alt="Gaming Slide 5" loading="lazy" />
               <img src="assets/carousels/gaming-fall/gaming_fall_06.png" alt="Gaming Slide 6" loading="lazy" />
             </div>
-            <button class="cs-arr cs-arr-l" onclick="slideCarousel('gaming', -1)">&#8249;</button>
-            <button class="cs-arr cs-arr-r" onclick="slideCarousel('gaming',  1)">&#8250;</button>
+            <div class="carousel-open-hint">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              Click to expand
+            </div>
             <span class="canva-carousel-badge" id="gaming-badge">1 / 6</span>
           </div>
           <div class="canva-poster-caption">
@@ -1683,6 +1703,19 @@
     <button class="cdb-lb-close" onclick="closeLightbox()">✕</button>
     <img id="cdLightboxImg" src="" alt="Preview" />
   </div>
+
+  <!-- Carousel Lightbox -->
+<div class="cdb-lightbox" id="carouselLightbox">
+  <button class="cdb-lb-close" onclick="closeCarouselLightbox()">✕</button>
+
+  <div class="canva-carousel-slider" style="max-width:700px;">
+    <button class="cs-arr cs-arr-l" onclick="prevSlide()">‹</button>
+    <div class="carousel-track" id="carouselLightboxTrack"></div>
+    <button class="cs-arr cs-arr-r" onclick="nextSlide()">›</button>
+
+    <span class="canva-carousel-badge" id="carouselLightboxBadge"></span>
+  </div>
+</div>
 
   <!-- =========================================================
        CASE STUDY 1 — SPOTIFY
@@ -2395,5 +2428,67 @@
       }
     });
   </script>
+
+  <script>
+let currentSlides = [];
+let currentIndex = 0;
+
+const carouselData = {
+  smm: [
+    "assets/carousels/smm-growth/smm_growth_cover.png",
+    "assets/carousels/smm-growth/smm_growth_02.png",
+    "assets/carousels/smm-growth/smm_growth_03.png",
+    "assets/carousels/smm-growth/smm_growth_04.png",
+    "assets/carousels/smm-growth/smm_growth_05.png",
+    "assets/carousels/smm-growth/smm_growth_06.png"
+  ],
+  gaming: [
+    "assets/carousels/gaming-fall/gaming_fall_cover.png",
+    "assets/carousels/gaming-fall/gaming_fall_02.png",
+    "assets/carousels/gaming-fall/gaming_fall_03.png",
+    "assets/carousels/gaming-fall/gaming_fall_04.png",
+    "assets/carousels/gaming-fall/gaming_fall_05.png",
+    "assets/carousels/gaming-fall/gaming_fall_06.png"
+  ]
+};
+
+function openCarouselLightbox(type) {
+  const lightbox = document.getElementById("carouselLightbox");
+  const track = document.getElementById("carouselLightboxTrack");
+
+  currentSlides = carouselData[type];
+  currentIndex = 0;
+
+  track.innerHTML = currentSlides.map(src => 
+    `<img src="${src}" />`
+  ).join("");
+
+  updateSlider();
+
+  lightbox.classList.add("open");
+}
+
+function closeCarouselLightbox() {
+  document.getElementById("carouselLightbox").classList.remove("open");
+}
+
+function updateSlider() {
+  const track = document.getElementById("carouselLightboxTrack");
+  const badge = document.getElementById("carouselLightboxBadge");
+
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  badge.textContent = `${currentIndex + 1} / ${currentSlides.length}`;
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % currentSlides.length;
+  updateSlider();
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + currentSlides.length) % currentSlides.length;
+  updateSlider();
+}
+</script>
 </body>
 </html>
