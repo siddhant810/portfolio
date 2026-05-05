@@ -491,6 +491,22 @@
     .pv-f { background: linear-gradient(135deg,#1a0a00,#2d1200,#1a0a00); }
     .pv-sm { background: linear-gradient(135deg,#001a0d,#002d1a,#001a0d); }
 
+    .proj-thumb img.proj-screenshot {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      opacity: 0.85;
+      transition: opacity 0.4s, transform 0.4s;
+    }
+
+    .proj-preview-card:hover .proj-thumb img.proj-screenshot {
+      opacity: 1;
+      transform: scale(1.06);
+    }
+
     .proj-badge {
       position: absolute;
       top: 14px;
@@ -1008,20 +1024,13 @@
     </div>
 
     <div class="proj-preview-grid reveal">
-      <a href="projects.html#spotify" class="proj-preview-card">
-        <div class="proj-thumb pv-s"><span>🎵</span><span class="proj-badge b-rd">Redesign</span></div>
+      <a href="projects.html#food" class="proj-preview-card">
+        <div class="proj-thumb pv-f">
+          <img src="assets/screenshots/flavr_screenshot.png" alt="Flavr – Food Delivery Website" class="proj-screenshot" />
+          <span class="proj-badge b-wip">In Progress</span>
+        </div>
         <div class="proj-info">
           <div class="proj-num">01</div>
-          <h3 class="proj-title">Spotify Redesign</h3>
-          <p class="proj-desc">Light mode, improved discover placement & smarter navigation for a better listening journey.</p>
-          <span class="proj-arrow">View Case Study →</span>
-        </div>
-      </a>
-
-      <a href="projects.html#food" class="proj-preview-card">
-        <div class="proj-thumb pv-f"><span>🍔</span><span class="proj-badge b-wip">In Progress</span></div>
-        <div class="proj-info">
-          <div class="proj-num">02</div>
           <h3 class="proj-title">Food Delivery Website</h3>
           <p class="proj-desc">A next-gen food delivery experience with unique features beyond Zomato & Swiggy.</p>
           <span class="proj-arrow">View Case Study →</span>
@@ -1029,11 +1038,24 @@
       </a>
 
       <a href="projects.html#smartsanstha" class="proj-preview-card">
-        <div class="proj-thumb pv-sm"><span>⚖️</span><span class="proj-badge b-maj">BE Major</span></div>
+        <div class="proj-thumb pv-sm">
+          <img src="assets/screenshots/smartsanstha_screenshot.png" alt="SmartSanstha – Civic Learning Platform" class="proj-screenshot" />
+          <span class="proj-badge b-maj">BE Major</span>
+        </div>
         <div class="proj-info">
-          <div class="proj-num">03</div>
+          <div class="proj-num">02</div>
           <h3 class="proj-title">SmartSanstha</h3>
           <p class="proj-desc">Gamified Indian Constitution learning — quizzes, courtroom sim, chatbot & more.</p>
+          <span class="proj-arrow">View Case Study →</span>
+        </div>
+      </a>
+
+      <a href="projects.html#spotify" class="proj-preview-card">
+        <div class="proj-thumb pv-s"><span>🎵</span><span class="proj-badge b-rd">Redesign</span></div>
+        <div class="proj-info">
+          <div class="proj-num">03</div>
+          <h3 class="proj-title">Spotify Redesign</h3>
+          <p class="proj-desc">Light mode, improved discover placement & smarter navigation for a better listening journey.</p>
           <span class="proj-arrow">View Case Study →</span>
         </div>
       </a>

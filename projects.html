@@ -702,6 +702,517 @@
       }
     }
 
+    /* =========================================================
+       CANVA DESIGNS SECTION
+       ========================================================= */
+
+    #canva-section {
+      padding: 20px 60px 80px;
+    }
+
+    .canva-section-header {
+      margin-bottom: 48px;
+    }
+
+    .canva-section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .canva-section-eyebrow::before {
+      content: '//';
+      color: var(--text-dim);
+    }
+
+    .canva-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 14px;
+    }
+
+    .canva-section-title span {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--accent);
+    }
+
+    .canva-section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* --- Canva divider between subsections --- */
+    .canva-subsection {
+      margin-bottom: 64px;
+    }
+
+    .canva-sub-label {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .canva-sub-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* --- Poster grid (2-up) --- */
+    .canva-poster-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .canva-poster-item {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: all 0.35s ease;
+      cursor: pointer;
+    }
+
+    .canva-poster-item:hover {
+      border-color: rgba(108,99,255,0.35);
+      transform: translateY(-5px);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.28);
+    }
+
+    .canva-poster-item img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .canva-poster-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .canva-poster-caption {
+      padding: 16px 18px;
+    }
+
+    .canva-poster-caption strong {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .canva-poster-caption span {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* --- Carousel / Blog grid (3-up) --- */
+    .canva-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .canva-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.35s ease;
+      cursor: pointer;
+    }
+
+    .canva-card:hover {
+      border-color: rgba(108,99,255,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.22);
+    }
+
+    /* Carousel preview — stacked slides effect */
+    .canva-carousel-preview {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .canva-carousel-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .canva-card:hover .canva-carousel-preview img {
+      transform: scale(1.05);
+    }
+
+    .canva-carousel-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      padding: 5px 11px;
+      border-radius: 100px;
+    }
+
+    /* Blog cover grid — landscape */
+    .canva-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* Reel card — portrait */
+    .canva-reel-wrap {
+      max-width: 360px;
+    }
+
+    .canva-reel-thumb {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 9/16;
+      background: var(--surface);
+      transition: all 0.35s ease;
+    }
+
+    .canva-reel-thumb:hover {
+      border-color: rgba(108,99,255,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 56px rgba(0,0,0,0.3);
+    }
+
+    .canva-reel-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .canva-reel-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+
+    .canva-reel-thumb:hover .canva-reel-play {
+      background: rgba(0,0,0,0.45);
+    }
+
+    .canva-reel-play svg {
+      width: 54px;
+      height: 54px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+    }
+
+    .canva-reel-info {
+      margin-top: 14px;
+    }
+
+    .canva-reel-info strong {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .canva-reel-info span {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* Canva tag pills */
+    .canva-tool-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .canva-tool-tag {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 5px 13px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* Section separator */
+    .section-sep {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 60px 0;
+    }
+
+    /* Lightbox */
+    .cdb-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: rgba(3,3,8,0.94);
+      backdrop-filter: blur(18px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .cdb-lightbox.open {
+      display: flex;
+    }
+
+    .cdb-lightbox img {
+      max-width: min(90vw, 700px);
+      max-height: 88vh;
+      border-radius: 16px;
+      object-fit: contain;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    }
+
+    .cdb-lb-close {
+      position: fixed;
+      top: 22px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      color: var(--text);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .cdb-lb-close:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: 900px) {
+      #canva-section {
+        padding: 20px 20px 60px;
+      }
+
+      .canva-poster-grid,
+      .canva-card-grid,
+      .canva-blog-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .canva-reel-wrap {
+        max-width: 100%;
+      }
+
+      .section-sep {
+        margin: 0 20px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .canva-poster-grid,
+      .canva-card-grid,
+      .canva-blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Carousel Slider ── */
+    .canva-carousel-slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .carousel-track img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .cs-arr {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 22px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.2s ease, transform 0.2s ease;
+      padding: 0;
+    }
+
+    .cs-arr:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .cs-arr-l { left: 10px; }
+    .cs-arr-r { right: 10px; }
+
+    /* reposition the slide badge when inside slider */
+    .canva-carousel-slider .canva-carousel-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+    }
+
+    /* ── Screenshot thumbnails in project cards ── */
+    .bpc-visual.bpv-screenshot {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .bpc-visual.bpv-screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .big-proj-card:hover .bpc-visual.bpv-screenshot img {
+      transform: scale(1.05);
+    }
+
+    /* ── Screenshot cover inside case study ── */
+    .cs-cover.cs-cover-screenshot {
+      padding: 0;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .cs-cover.cs-cover-screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    /* ── Live site button ── */
+    .bpc-btn-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      width: fit-content;
+      margin-top: 10px;
+    }
+
+    .bpc-btn-live:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .bpc-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* live site button inside case study */
+    .cs-live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108,99,255,0.1);
+      border: 1px solid rgba(108,99,255,0.3);
+      color: var(--accent);
+      padding: 11px 22px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-bottom: 32px;
+      width: fit-content;
+    }
+
+    .cs-live-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
     @media (max-width: 900px) {
       #project-list {
         padding: 60px 20px;
@@ -834,14 +1345,96 @@
   <section id="project-list">
     <div class="project-cards">
 
-      <!-- PROJECT 1 -->
+      <!-- PROJECT 1 — FLAVR -->
+      <div class="big-proj-card reveal" id="food">
+        <div class="bpc-visual bpv-f bpv-screenshot">
+          <img src="assets/screenshots/flavr_screenshot.png" alt="Flavr – Food Delivery Website" />
+          <span class="bpc-label" style="background: rgba(255,200,0,0.15); border: 1px solid rgba(255,200,0,0.3); color: #ffc800;">
+            Live
+          </span>
+          <span class="bpc-num">01</span>
+        </div>
+
+        <div class="bpc-info">
+          <div class="bpc-category">Web Design · Product Design</div>
+          <h2 class="bpc-title">Flavr — Food<br />Delivery Website</h2>
+          <p class="bpc-desc">
+            A next-generation food delivery experience that goes beyond Zomato & Swiggy — with unique social features,
+            real-time kitchen transparency, and a hyperlocal discovery engine.
+          </p>
+
+          <div class="bpc-tags">
+            <span class="bpc-tag">Web Design</span>
+            <span class="bpc-tag">UX Research</span>
+            <span class="bpc-tag">Wireframing</span>
+            <span class="bpc-tag">Prototyping</span>
+            <span class="bpc-tag">Figma</span>
+          </div>
+
+          <div class="bpc-btn-row">
+            <button class="bpc-btn" onclick="openCS('food')">
+              Read Case Study
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+            <a class="bpc-btn-live" href="https://siddhant810.github.io/Flavr/#/" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Live Site
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 — SMARTSANSTHA -->
+      <div class="big-proj-card reveal" id="smartsanstha">
+        <div class="bpc-visual bpv-sm bpv-screenshot">
+          <img src="assets/screenshots/smartsanstha_screenshot.png" alt="SmartSanstha – Civic Learning Platform" />
+          <span class="bpc-label" style="background: rgba(0,212,170,0.15); border: 1px solid rgba(0,212,170,0.3); color: var(--accent3);">
+            BE Major Project
+          </span>
+          <span class="bpc-num">02</span>
+        </div>
+
+        <div class="bpc-info">
+          <div class="bpc-category">Product Design · EdTech · UI/UX</div>
+          <h2 class="bpc-title">Smart<br />Sanstha</h2>
+          <p class="bpc-desc">
+            A gamified platform to make the Indian Constitution accessible and engaging — featuring constitutional quizzes,
+            courtroom simulations, an AI chatbot, and adaptive learning modules.
+          </p>
+
+          <div class="bpc-tags">
+            <span class="bpc-tag">Product Design</span>
+            <span class="bpc-tag">EdTech</span>
+            <span class="bpc-tag">Dashboard UI</span>
+            <span class="bpc-tag">Information Architecture</span>
+            <span class="bpc-tag">Figma</span>
+          </div>
+
+          <div class="bpc-btn-row">
+            <button class="bpc-btn" onclick="openCS('smartsanstha')">
+              Read Case Study
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+            <a class="bpc-btn-live" href="https://smartsanstha-7hqc.onrender.com/" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View Live Site
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 — SPOTIFY -->
       <div class="big-proj-card reveal" id="spotify">
         <div class="bpc-visual bpv-s">
           🎵
           <span class="bpc-label" style="background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.3); color: var(--accent);">
             Redesign
           </span>
-          <span class="bpc-num">01</span>
+          <span class="bpc-num">03</span>
         </div>
 
         <div class="bpc-info">
@@ -868,78 +1461,228 @@
           </button>
         </div>
       </div>
-
-      <!-- PROJECT 2 -->
-      <div class="big-proj-card reveal" id="food">
-        <div class="bpc-visual bpv-f">
-          🍔
-          <span class="bpc-label" style="background: rgba(255,200,0,0.15); border: 1px solid rgba(255,200,0,0.3); color: #ffc800;">
-            In Progress
-          </span>
-          <span class="bpc-num">02</span>
-        </div>
-
-        <div class="bpc-info">
-          <div class="bpc-category">Web Design · Product Design</div>
-          <h2 class="bpc-title">Food Delivery<br />Website</h2>
-          <p class="bpc-desc">
-            A next-generation food delivery experience that goes beyond Zomato & Swiggy — with unique social features,
-            real-time kitchen transparency, and a hyperlocal discovery engine.
-          </p>
-
-          <div class="bpc-tags">
-            <span class="bpc-tag">Web Design</span>
-            <span class="bpc-tag">UX Research</span>
-            <span class="bpc-tag">Wireframing</span>
-            <span class="bpc-tag">Prototyping</span>
-            <span class="bpc-tag">Figma</span>
-          </div>
-
-          <button class="bpc-btn" onclick="openCS('food')">
-            Read Case Study
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- PROJECT 3 -->
-      <div class="big-proj-card reveal" id="smartsanstha">
-        <div class="bpc-visual bpv-sm">
-          ⚖️
-          <span class="bpc-label" style="background: rgba(0,212,170,0.15); border: 1px solid rgba(0,212,170,0.3); color: var(--accent3);">
-            BE Major Project
-          </span>
-          <span class="bpc-num">03</span>
-        </div>
-
-        <div class="bpc-info">
-          <div class="bpc-category">Product Design · EdTech · UI/UX</div>
-          <h2 class="bpc-title">Smart<br />Sanstha</h2>
-          <p class="bpc-desc">
-            A gamified platform to make the Indian Constitution accessible and engaging — featuring constitutional quizzes,
-            courtroom simulations, an AI chatbot, and adaptive learning modules.
-          </p>
-
-          <div class="bpc-tags">
-            <span class="bpc-tag">Product Design</span>
-            <span class="bpc-tag">EdTech</span>
-            <span class="bpc-tag">Dashboard UI</span>
-            <span class="bpc-tag">Information Architecture</span>
-            <span class="bpc-tag">Figma</span>
-          </div>
-
-          <button class="bpc-btn" onclick="openCS('smartsanstha')">
-            Read Case Study
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-      </div>
     </div>
   </section>
+
+  <!-- =========================================================
+       SECTION SEPARATOR
+       ========================================================= -->
+  <div class="section-sep"></div>
+
+  <!-- =========================================================
+       CANVA DESIGNS & TEMPLATES SECTION
+       ========================================================= -->
+  <section id="canva-section">
+    <div class="canva-section-header reveal">
+      <div class="canva-section-eyebrow">Canva Designs &amp; Templates</div>
+      <h2 class="canva-section-title">Visual <span>Content</span><br />Creation</h2>
+      <p class="canva-section-desc">
+        A curated set of social media creatives, promotional posters, carousels, blog covers,
+        and short-form video content — all designed in Canva for real brands and digital campaigns.
+      </p>
+      <div class="canva-tool-strip">
+        <span class="canva-tool-tag">Canva Pro</span>
+        <span class="canva-tool-tag">Canva AI Tools</span>
+        <span class="canva-tool-tag">Brand Kit</span>
+        <span class="canva-tool-tag">Social Media</span>
+        <span class="canva-tool-tag">Content Design</span>
+        <span class="canva-tool-tag">Template Design</span>
+      </div>
+    </div>
+
+    <!-- ── POSTERS ───────────────────────────────────────────── -->
+    <div class="canva-subsection reveal">
+      <div class="canva-sub-label">Brand Posters</div>
+      <div class="canva-poster-grid">
+
+        <div class="canva-poster-item" onclick="openLightbox('assets/posters/prime_energy_iceberg.png')">
+          <img src="assets/posters/prime_energy_iceberg.png" alt="Prime Energy Drink – Iceberg Poster" loading="lazy" />
+          <div class="canva-poster-caption">
+            <strong>Prime Energy — Iceberg</strong>
+            <span>Product Poster · Canva</span>
+          </div>
+        </div>
+
+        <div class="canva-poster-item" onclick="openLightbox('assets/posters/prime_energy_plane.png')">
+          <img src="assets/posters/prime_energy_plane.png" alt="Prime Energy Drink – Sky Poster" loading="lazy" />
+          <div class="canva-poster-caption">
+            <strong>Prime Energy — Sky</strong>
+            <span>Product Poster · Canva</span>
+          </div>
+        </div>
+
+        <div class="canva-poster-item" onclick="openLightbox('assets/posters/porsche_911_gt3.jpg')">
+          <img src="assets/posters/porsche_911_gt3.jpg" alt="Porsche 911 GT3 Poster" loading="lazy" />
+          <div class="canva-poster-caption">
+            <strong>Porsche 911 GT3</strong>
+            <span>Automotive Poster · Canva</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── CAROUSELS ─────────────────────────────────────────── -->
+    <div class="canva-subsection reveal">
+      <div class="canva-sub-label">Social Media Carousels</div>
+      <div class="canva-card-grid">
+
+        <!-- SMM Growth Carousel -->
+        <div class="canva-card">
+          <div class="canva-carousel-slider" id="smm-slider">
+            <div class="carousel-track" id="smm-track">
+              <img src="assets/carousels/smm-growth/smm_growth_cover.png" alt="SMM Slide 1" loading="lazy" />
+              <img src="assets/carousels/smm-growth/smm_growth_02.png" alt="SMM Slide 2" loading="lazy" />
+              <img src="assets/carousels/smm-growth/smm_growth_03.png" alt="SMM Slide 3" loading="lazy" />
+              <img src="assets/carousels/smm-growth/smm_growth_04.png" alt="SMM Slide 4" loading="lazy" />
+              <img src="assets/carousels/smm-growth/smm_growth_05.png" alt="SMM Slide 5" loading="lazy" />
+              <img src="assets/carousels/smm-growth/smm_growth_06.png" alt="SMM Slide 6" loading="lazy" />
+            </div>
+            <button class="cs-arr cs-arr-l" onclick="slideCarousel('smm',  -1)">&#8249;</button>
+            <button class="cs-arr cs-arr-r" onclick="slideCarousel('smm',   1)">&#8250;</button>
+            <span class="canva-carousel-badge" id="smm-badge">1 / 6</span>
+          </div>
+          <div class="canva-poster-caption">
+            <strong>Social Media Growth Tips</strong>
+            <span>Business Carousel · Canva · 6 slides</span>
+          </div>
+        </div>
+
+        <!-- Gaming Releases Carousel -->
+        <div class="canva-card">
+          <div class="canva-carousel-slider" id="gaming-slider">
+            <div class="carousel-track" id="gaming-track">
+              <img src="assets/carousels/gaming-fall/gaming_fall_cover.png" alt="Gaming Slide 1" loading="lazy" />
+              <img src="assets/carousels/gaming-fall/gaming_fall_02.png" alt="Gaming Slide 2" loading="lazy" />
+              <img src="assets/carousels/gaming-fall/gaming_fall_03.png" alt="Gaming Slide 3" loading="lazy" />
+              <img src="assets/carousels/gaming-fall/gaming_fall_04.png" alt="Gaming Slide 4" loading="lazy" />
+              <img src="assets/carousels/gaming-fall/gaming_fall_05.png" alt="Gaming Slide 5" loading="lazy" />
+              <img src="assets/carousels/gaming-fall/gaming_fall_06.png" alt="Gaming Slide 6" loading="lazy" />
+            </div>
+            <button class="cs-arr cs-arr-l" onclick="slideCarousel('gaming', -1)">&#8249;</button>
+            <button class="cs-arr cs-arr-r" onclick="slideCarousel('gaming',  1)">&#8250;</button>
+            <span class="canva-carousel-badge" id="gaming-badge">1 / 6</span>
+          </div>
+          <div class="canva-poster-caption">
+            <strong>Fall Game Releases</strong>
+            <span>Gaming Page Carousel · Canva · 6 slides</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── BLOG COVERS ───────────────────────────────────────── -->
+    <div class="canva-subsection reveal">
+      <div class="canva-sub-label">Blog Cover Designs (5 Covers)</div>
+      <div class="canva-blog-grid">
+
+        <div class="canva-card" onclick="openLightbox('assets/blog-covers/blog_cover_music.png')">
+          <div class="canva-carousel-preview" style="aspect-ratio: 16/9;">
+            <img src="assets/blog-covers/blog_cover_music.png" alt="Blog Cover – Music" loading="lazy" />
+          </div>
+          <div class="canva-poster-caption">
+            <strong>Music</strong>
+            <span>Blog Cover · Canva</span>
+          </div>
+        </div>
+
+        <div class="canva-card" onclick="openLightbox('assets/blog-covers/blog_cover_gaming.png')">
+          <div class="canva-carousel-preview" style="aspect-ratio: 16/9;">
+            <img src="assets/blog-covers/blog_cover_gaming.png" alt="Blog Cover – Gaming" loading="lazy" />
+          </div>
+          <div class="canva-poster-caption">
+            <strong>Gaming</strong>
+            <span>Blog Cover · Canva</span>
+          </div>
+        </div>
+
+        <div class="canva-card" onclick="openLightbox('assets/blog-covers/blog_cover_tech.png')">
+          <div class="canva-carousel-preview" style="aspect-ratio: 16/9;">
+            <img src="assets/blog-covers/blog_cover_tech.png" alt="Blog Cover – Tech" loading="lazy" />
+          </div>
+          <div class="canva-poster-caption">
+            <strong>Tech</strong>
+            <span>Blog Cover · Canva</span>
+          </div>
+        </div>
+
+        <div class="canva-card" onclick="openLightbox('assets/blog-covers/blog_cover_lifestyle.png')">
+          <div class="canva-carousel-preview" style="aspect-ratio: 16/9;">
+            <img src="assets/blog-covers/blog_cover_lifestyle.png" alt="Blog Cover – Lifestyle" loading="lazy" />
+          </div>
+          <div class="canva-poster-caption">
+            <strong>Lifestyle</strong>
+            <span>Blog Cover · Canva</span>
+          </div>
+        </div>
+
+        <div class="canva-card" onclick="openLightbox('assets/blog-covers/blog_cover_finance.png')">
+          <div class="canva-carousel-preview" style="aspect-ratio: 16/9;">
+            <img src="assets/blog-covers/blog_cover_finance.png" alt="Blog Cover – Finance" loading="lazy" />
+          </div>
+          <div class="canva-poster-caption">
+            <strong>Finance</strong>
+            <span>Blog Cover · Canva</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── REEL ──────────────────────────────────────────────── -->
+    <div class="canva-subsection reveal">
+      <div class="canva-sub-label">Short-Form Video / Reel</div>
+      <div style="display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start;">
+
+        <div class="canva-reel-wrap">
+          <div class="canva-reel-thumb">
+            <video
+              src="assets/reels/fitmaize_reel.mp4"
+              poster="assets/reels/fitmaize_reel_thumb.png"
+              controls
+              playsinline
+              preload="none"
+              style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;"
+            ></video>
+          </div>
+          <div class="canva-reel-info">
+            <strong>Fitmaize — Brand Reel</strong>
+            <span>Female Fitness &amp; Diet · Instagram Reel · Canva</span>
+          </div>
+        </div>
+
+        <div style="flex:1; min-width:240px; padding-top:8px;">
+          <div class="cs-body" style="font-size:14.5px;">
+            <p>
+              <strong>Client:</strong> Fitmaize — a female fitness influencer and dietician brand focused on healthy lifestyle content.
+            </p>
+            <p>
+              Designed and animated a short-form Instagram Reel in Canva to drive audience engagement and brand awareness.
+              The reel uses branded colour palettes, motion text, and punchy messaging to capture attention in the first 3 seconds.
+            </p>
+            <p>
+              <strong>Tools:</strong> Canva Animate, Beat Sync, Magic Resize for Stories &amp; Reels format.
+            </p>
+          </div>
+          <div class="canva-tool-strip" style="margin-top:14px;">
+            <span class="canva-tool-tag">Canva Animate</span>
+            <span class="canva-tool-tag">Reel / Stories</span>
+            <span class="canva-tool-tag">Motion Design</span>
+            <span class="canva-tool-tag">Fitness Niche</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Lightbox -->
+  <div class="cdb-lightbox" id="cdLightbox" onclick="closeLightbox()">
+    <button class="cdb-lb-close" onclick="closeLightbox()">✕</button>
+    <img id="cdLightboxImg" src="" alt="Preview" />
+  </div>
 
   <!-- =========================================================
        CASE STUDY 1 — SPOTIFY
@@ -949,7 +1692,7 @@
 
     <div class="cs-inner">
       <div class="cs-hero">
-        <div class="cs-tag">Case Study · 01</div>
+        <div class="cs-tag">Case Study · 03</div>
         <h1 class="cs-title">Spotify<br /><span>Redesign</span></h1>
 
         <div class="cs-meta-row">
@@ -1125,11 +1868,11 @@
 
       <div class="cs-nav-row">
         <div class="cs-nav-group">
-          <button class="cs-nav-btn secondary" onclick="closeCS('spotify')">← Back to Projects</button>
+          <button class="cs-nav-btn secondary" onclick="closeCS('spotify');openCS('smartsanstha')">← Previous: SmartSanstha</button>
         </div>
 
         <div class="cs-nav-group">
-          <button class="cs-nav-btn" onclick="closeCS('spotify');openCS('food')">Next: Food Delivery →</button>
+          <button class="cs-nav-btn secondary" onclick="closeCS('spotify')">Back to Projects</button>
         </div>
       </div>
     </div>
@@ -1143,17 +1886,24 @@
 
     <div class="cs-inner">
       <div class="cs-hero">
-        <div class="cs-tag">Case Study · 02</div>
-        <h1 class="cs-title">Food Delivery<br /><span>Website</span></h1>
+        <div class="cs-tag">Case Study · 01</div>
+        <h1 class="cs-title">Flavr — Food<br /><span>Delivery Website</span></h1>
 
         <div class="cs-meta-row">
           <div class="cs-meta-item"><strong>Type</strong><span>Product Design</span></div>
           <div class="cs-meta-item"><strong>Platform</strong><span>Responsive Web</span></div>
-          <div class="cs-meta-item"><strong>Tools</strong><span>Figma</span></div>
-          <div class="cs-meta-item"><strong>Status</strong><span>In Progress</span></div>
+          <div class="cs-meta-item"><strong>Tools</strong><span>Figma + HTML/CSS</span></div>
+          <div class="cs-meta-item"><strong>Status</strong><span>Live ↗</span></div>
         </div>
 
-        <div class="cs-cover bpv-f">🍔</div>
+        <a class="cs-live-link" href="https://siddhant810.github.io/Flavr/#/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Live Site — siddhant810.github.io/Flavr
+        </a>
+
+        <div class="cs-cover cs-cover-screenshot bpv-f">
+          <img src="assets/screenshots/flavr_screenshot.png" alt="Flavr Website Screenshot" />
+        </div>
 
         <div class="cs-kpi-strip">
           <div class="cs-kpi"><span class="cs-kpi-num">6</span><div class="cs-kpi-label">Differentiating product features</div></div>
@@ -1324,11 +2074,10 @@
 
       <div class="cs-nav-row">
         <div class="cs-nav-group">
-          <button class="cs-nav-btn secondary" onclick="closeCS('food');openCS('spotify')">← Previous: Spotify</button>
+          <button class="cs-nav-btn secondary" onclick="closeCS('food')">← Back to Projects</button>
         </div>
 
         <div class="cs-nav-group">
-          <button class="cs-nav-btn secondary" onclick="closeCS('food')">Back to Projects</button>
           <button class="cs-nav-btn" onclick="closeCS('food');openCS('smartsanstha')">Next: SmartSanstha →</button>
         </div>
       </div>
@@ -1343,7 +2092,7 @@
 
     <div class="cs-inner">
       <div class="cs-hero">
-        <div class="cs-tag">Case Study · 03</div>
+        <div class="cs-tag">Case Study · 02</div>
         <h1 class="cs-title">Smart<br /><span>Sanstha</span></h1>
 
         <div class="cs-meta-row">
@@ -1353,7 +2102,14 @@
           <div class="cs-meta-item"><strong>Team</strong><span>4 Members</span></div>
         </div>
 
-        <div class="cs-cover bpv-sm">⚖️</div>
+        <a class="cs-live-link" href="https://smartsanstha-7hqc.onrender.com/" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Live Site — smartsanstha-7hqc.onrender.com
+        </a>
+
+        <div class="cs-cover cs-cover-screenshot bpv-sm">
+          <img src="assets/screenshots/smartsanstha_screenshot.png" alt="SmartSanstha Website Screenshot" />
+        </div>
 
         <div class="cs-kpi-strip">
           <div class="cs-kpi"><span class="cs-kpi-num">6</span><div class="cs-kpi-label">Core product modules</div></div>
@@ -1529,11 +2285,12 @@
 
       <div class="cs-nav-row">
         <div class="cs-nav-group">
-          <button class="cs-nav-btn secondary" onclick="closeCS('smartsanstha');openCS('food')">← Previous: Food Delivery</button>
+          <button class="cs-nav-btn secondary" onclick="closeCS('smartsanstha');openCS('food')">← Previous: Flavr</button>
         </div>
 
         <div class="cs-nav-group">
-          <button class="cs-nav-btn" onclick="closeCS('smartsanstha')">Back to Projects</button>
+          <button class="cs-nav-btn secondary" onclick="closeCS('smartsanstha')">Back to Projects</button>
+          <button class="cs-nav-btn" onclick="closeCS('smartsanstha');openCS('spotify')">Next: Spotify →</button>
         </div>
       </div>
     </div>
@@ -1593,8 +2350,42 @@
       }
     });
 
+    // =====================
+    // CAROUSEL SLIDERS
+    // =====================
+    const carouselState = {};
+
+    function slideCarousel(id, dir) {
+      const track = document.getElementById(id + '-track');
+      const badge = document.getElementById(id + '-badge');
+      if (!track) return;
+
+      const total = track.children.length;
+      if (!carouselState[id]) carouselState[id] = 0;
+
+      carouselState[id] = (carouselState[id] + dir + total) % total;
+      track.style.transform = `translateX(-${carouselState[id] * 100}%)`;
+      if (badge) badge.textContent = `${carouselState[id] + 1} / ${total}`;
+    }
+
+    // =====================
+    // LIGHTBOX
+    // =====================
+    function openLightbox(src) {
+      const lb = document.getElementById('cdLightbox');
+      document.getElementById('cdLightboxImg').src = src;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('cdLightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
+        closeLightbox();
         ['spotify', 'food', 'smartsanstha'].forEach(id => {
           const overlay = document.getElementById('cs-' + id);
           if (overlay && overlay.classList.contains('visible')) {
