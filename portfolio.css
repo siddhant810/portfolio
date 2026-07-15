@@ -129,7 +129,7 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 620px) { [data-stack-sm] { grid-template-columns: 1fr !important; } }
 @media (max-width: 780px) {
   [data-pad] { padding-left: 22px !important; padding-right: 22px !important; }
-  [data-hero-embers] [data-hero-title] { font-size: clamp(46px, 15vw, 96px) !important; }
+  [data-hero-embers] [data-hero-title] { font-size: clamp(40px, 13vw, 84px) !important; }
 }
 
 /* ---------- scrollbar ---------- */

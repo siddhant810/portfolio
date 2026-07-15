@@ -20,15 +20,14 @@ a{color:inherit;text-decoration:none}
 a:hover{color:var(--accent)}
 ::selection{background:var(--accent);color:var(--accent-ink)}
 h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
-.hero-figure{position:absolute;right:0;bottom:0;z-index:1;width:clamp(210px,21vw,350px);pointer-events:none}
+.hero-figure{position:absolute;right:0;bottom:0;z-index:1;width:clamp(178px,17vw,310px);pointer-events:none}
 .hero-figure video{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%),linear-gradient(to right,transparent 0,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 15%),linear-gradient(to right,transparent 0,#000 12%);mask-composite:intersect;opacity:0;animation:pf-fig 1.3s cubic-bezier(.16,.7,.2,1) .5s forwards}
 @keyframes pf-fig{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
 [data-theme="light"] .hero-figure{display:none}
-@media (max-width:940px){.hero-figure{display:none}}
 /* dim the corner glow only where the figure shows (desktop + dark) so its black bg blends seamlessly */
 @media (min-width:941px){html:not([data-theme="light"]) .hero-glow-br{opacity:.28}}
-/* shift hero content left on desktop so the big text clears the bottom-right video */
-@media (min-width:941px){[data-hero-embers]{padding-right:clamp(150px,27vw,440px)!important}[data-hero-embers] [data-scroll-cue]{left:calc(50% - clamp(75px,13.5vw,220px))!important}}
+/* tablet + phone: stack the figure below the hero text, centered and fully visible */
+@media (max-width:940px){[data-hero-embers]{justify-content:flex-start;padding-top:clamp(92px,20vw,128px);padding-bottom:24px;min-height:auto}[data-hero-embers] [data-scroll-cue]{display:none!important}.hero-figure{position:static;width:min(250px,56vw);margin:clamp(10px,3.5vw,22px) auto 0}.hero-figure video{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 93%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 12%,#000 93%,transparent 100%)}}
 </style>
 <link rel="stylesheet" href="portfolio.css">
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
@@ -87,15 +86,13 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   <div data-parallax="0.18" aria-hidden="true" style="position:absolute;left:7%;top:22%;width:min(340px,42vw);height:min(340px,42vw);background:radial-gradient(circle,color-mix(in srgb,var(--accent2) 32%,transparent),transparent 70%);filter:blur(34px);pointer-events:none"></div>
   <div class="hero-glow-br" data-parallax="-0.13" aria-hidden="true" style="position:absolute;right:5%;bottom:15%;width:min(300px,38vw);height:min(300px,38vw);background:radial-gradient(circle,color-mix(in srgb,var(--accent) 28%,transparent),transparent 70%);filter:blur(38px);pointer-events:none"></div>
 
-  <div class="hero-figure" data-hero-fade aria-hidden="true"><video src="assets/hero-coder.mp4" autoplay muted loop playsinline preload="auto"></video></div>
-
   <div data-hero-fade style="position:relative;display:flex;flex-direction:column;align-items:center;width:100%">
   <div data-reveal data-reveal-delay="40" style="display:inline-flex;align-items:center;gap:11px;padding:9px 17px;border:1px solid var(--line);border-radius:100px;background:color-mix(in srgb,var(--surface) 60%,transparent);backdrop-filter:blur(8px);margin-bottom:34px">
     <span style="width:8px;height:8px;border-radius:50%;background:#3ad07a;box-shadow:0 0 10px #3ad07a;animation:pf-pulse 2s infinite"></span>
     <span style="font-size:12.5px;letter-spacing:.08em;color:var(--fg-dim);font-weight:500">UI/UX &amp; Graphic Designer — Ambernath, India</span>
   </div>
 
-  <h1 data-hero-title data-split style="position:relative;font-family:var(--font-display);font-weight:800;letter-spacing:-.045em;line-height:.9;font-size:clamp(52px,11.5vw,188px);max-width:15ch;margin:0 auto">I design <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)">experiences</span> people remember.</h1>
+  <h1 data-hero-title data-split style="position:relative;font-family:var(--font-display);font-weight:800;letter-spacing:-.045em;line-height:.92;font-size:clamp(44px,8vw,128px);max-width:15ch;margin:0 auto">I design <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)">experiences</span> people remember.</h1>
 
   <p data-reveal data-reveal-delay="240" style="position:relative;margin:34px auto 0;max-width:56ch;font-size:clamp(16px,1.7vw,20px);color:var(--fg-dim);line-height:1.65">Blending visual craft with user empathy to build digital products that aren't just beautiful — they feel effortless, intentional, and human.</p>
 
@@ -104,6 +101,8 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
     <a href="about.html" data-magnetic="0.22" class="hv-border" style="display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);color:var(--fg);padding:16px 30px;border-radius:100px;font-weight:600;font-size:15.5px">About me</a>
   </div>
   </div>
+
+  <div class="hero-figure" data-hero-fade aria-hidden="true"><video src="assets/hero-coder.mp4" autoplay muted loop playsinline preload="auto"></video></div>
 
   <a href="#work" data-scroll-cue aria-label="Scroll to work" style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--muted)">
     <span style="font-size:11px;letter-spacing:.24em;text-transform:uppercase">Scroll</span>
