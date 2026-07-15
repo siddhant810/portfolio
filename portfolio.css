@@ -1,0 +1,155 @@
+/* =========================================================================
+   Portfolio CHROME styles — only JS-injected UI (custom cursor, page wipe)
+   and state-toggle enhancements (nav-on-scroll, mobile menu) + keyframes.
+   All page CONTENT is styled inline so it paints instantly while streaming.
+   ========================================================================= */
+
+/* ---------- custom cursor ---------- */
+html.pf-cursor-on, html.pf-cursor-on * { cursor: none !important; }
+html.pf-cursor-on input, html.pf-cursor-on textarea, html.pf-cursor-on select { cursor: text !important; }
+
+.pf-dot {
+  position: fixed; top: 0; left: 0; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 12px 2px var(--glow);
+  z-index: 100000; pointer-events: none; will-change: transform;
+  transition: opacity .3s ease, width .25s ease, height .25s ease;
+}
+.pf-ring {
+  position: fixed; top: 0; left: 0; width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--accent) 70%, transparent);
+  z-index: 99999; pointer-events: none; will-change: transform;
+  display: flex; align-items: center; justify-content: center;
+  transition: width .32s cubic-bezier(.2,.8,.2,1), height .32s cubic-bezier(.2,.8,.2,1),
+              background .3s ease, border-color .3s ease, opacity .3s ease, padding .3s ease;
+}
+.pf-label {
+  font-family: var(--font-sans); font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent-ink); opacity: 0; white-space: nowrap;
+  transition: opacity .2s ease;
+}
+html.pf-hover .pf-dot { width: 4px; height: 4px; }
+html.pf-hover .pf-ring { width: 62px; height: 62px; background: color-mix(in srgb, var(--accent) 14%, transparent); border-color: transparent; }
+html.pf-labelled .pf-dot { opacity: 0; }
+html.pf-labelled .pf-ring { width: auto; height: auto; min-width: 0; padding: 11px 17px; border-radius: 100px; background: var(--accent); border-color: transparent; }
+html.pf-labelled .pf-label { opacity: 1; }
+html.pf-text .pf-ring { width: 26px; height: 26px; }
+html.pf-down .pf-ring { width: 26px; height: 26px; background: color-mix(in srgb, var(--accent) 22%, transparent); }
+
+/* ---------- cinematic page wipe ---------- */
+.pf-wipe {
+  position: fixed; inset: 0; z-index: 99997; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(120% 130% at 50% 120%, var(--accent) 0%, #20120a 42%, var(--bg) 100%);
+  transform: translateY(0); transition: transform .62s cubic-bezier(.76,0,.24,1);
+}
+.pf-wipe-mark {
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(48px, 9vw, 120px);
+  letter-spacing: -.04em; color: var(--accent-ink);
+  opacity: .9; transform: translateY(0); transition: opacity .5s ease .05s;
+}
+html.pf-loaded .pf-wipe { transform: translateY(-105%); }
+html.pf-loaded .pf-wipe-mark { opacity: 0; }
+html.pf-leaving .pf-wipe { transform: translateY(0); }
+html.pf-leaving .pf-wipe-mark { opacity: .9; }
+
+/* ---------- nav on scroll ---------- */
+[data-nav] {
+  transition: background .4s ease, backdrop-filter .4s ease, border-color .4s ease, padding .4s ease, box-shadow .4s ease;
+  border-bottom: 1px solid transparent;
+}
+[data-nav][data-scrolled="true"] {
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border-bottom-color: var(--line);
+  box-shadow: 0 10px 40px -24px rgba(0,0,0,.7);
+}
+
+/* ---------- mobile nav overlay ---------- */
+[data-mobile-nav] {
+  transform: translateX(100%); transition: transform .55s cubic-bezier(.76,0,.24,1);
+  visibility: hidden;
+}
+[data-mobile-nav][data-open="true"] { transform: translateX(0); visibility: visible; }
+
+/* ---------- scroll progress ---------- */
+[data-progress] { transform-origin: 0 50%; transform: scaleX(0); }
+
+/* ---------- Lenis smooth scroll ---------- */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- project card media hover ---------- */
+[data-proj]:hover [data-proj-img] { transform: scale(1.05); }
+[data-proj]:hover [data-proj-arrow] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+[data-proj-img] { transition: transform .9s cubic-bezier(.16,.7,.2,1); }
+[data-tile]:hover [data-tile-img] { transform: scale(1.06); }
+[data-tile-img] { transition: transform .8s cubic-bezier(.16,.7,.2,1); }
+
+/* ---------- split-text word reveal ---------- */
+.pf-w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .12em; margin-bottom: -.12em; }
+.pf-wi { display: inline-block; transform: translateY(115%) rotate(5deg); transition: transform 1s cubic-bezier(.16,.9,.3,1); }
+.pf-wi.in { transform: none; }
+
+/* ---------- clip-path reveal ---------- */
+.pf-clip { clip-path: inset(0 0 100% 0); transition: clip-path 1.15s cubic-bezier(.16,.8,.2,1); }
+.pf-clip.pf-clip-in { clip-path: inset(0 0 0% 0); }
+.pf-clip img { transform: scale(1.16); transition: transform 1.5s cubic-bezier(.16,.8,.2,1); }
+.pf-clip.pf-clip-in img { transform: scale(1); }
+
+/* ---------- pinned horizontal scroll ---------- */
+[data-hscroll-track] { will-change: transform; }
+[data-hscroll-pin] { transition: none; }
+@media (max-width: 860px) {
+  [data-hscroll] { height: auto !important; }
+  [data-hscroll-pin] { position: static !important; height: auto !important; overflow: visible !important; display: block !important; }
+  [data-hscroll-track] { flex-direction: column !important; transform: none !important; width: auto !important; padding-bottom: 8px; }
+  [data-hscroll-track] > * { width: auto !important; }
+}
+
+/* ---------- keyframes ---------- */
+@keyframes pf-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes pf-pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.35); opacity: .55; } }
+@keyframes pf-spin { to { transform: rotate(360deg); } }
+@keyframes pf-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes pf-bob { 0%,100% { transform: translateY(0); opacity: .8; } 50% { transform: translateY(9px); opacity: .25; } }
+@keyframes pf-shimmer { to { background-position: 200% center; } }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .pf-wipe { display: none !important; }
+}
+
+/* ---------- responsive utilities (base styles stay inline; these only collapse at breakpoints) ---------- */
+@media (max-width: 940px) { [data-desktop] { display: none !important; } }
+@media (min-width: 941px) { [data-mobile] { display: none !important; } }
+@media (max-width: 860px) { [data-stack] { grid-template-columns: 1fr !important; } }
+@media (max-width: 620px) { [data-stack-sm] { grid-template-columns: 1fr !important; } }
+@media (max-width: 780px) {
+  [data-pad] { padding-left: 22px !important; padding-right: 22px !important; }
+  [data-hero-embers] [data-hero-title] { font-size: clamp(46px, 15vw, 96px) !important; }
+}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--accent) 55%, var(--bg)); border-radius: 20px; border: 3px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+html { scrollbar-color: color-mix(in srgb, var(--accent) 55%, var(--bg)) var(--bg); }
+
+/* ---------- hover states (converted from design-tool style-hover attrs) ---------- */
+.hv-border:hover { border-color: var(--accent) !important; }
+.hv-accent:hover { color: var(--accent) !important; }
+.hv-fg:hover { color: var(--fg) !important; }
+.hv-card:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)) !important; }
+.hv-card45:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)) !important; }
+.hv-card50:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)) !important; }
+
+/* ---------- focus states (converted from design-tool style-focus attrs) ---------- */
+.fc-accent:focus { border-color: var(--accent) !important; }
+
+/* ---------- work-page lightbox ---------- */
+.pf-lb { position: fixed; inset: 0; z-index: 9995; background: color-mix(in srgb, #000 88%, transparent); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; padding: 6vh 5vw; }
+.pf-lb[hidden] { display: none; }
