@@ -20,12 +20,15 @@ a{color:inherit;text-decoration:none}
 a:hover{color:var(--accent)}
 ::selection{background:var(--accent);color:var(--accent-ink)}
 h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
-.hero-figure{position:absolute;right:0;bottom:0;z-index:1;width:clamp(240px,26vw,430px);height:auto;pointer-events:none;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%),linear-gradient(to right,transparent 0,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 15%),linear-gradient(to right,transparent 0,#000 12%);mask-composite:intersect;opacity:0;animation:pf-fig 1.3s cubic-bezier(.16,.7,.2,1) .5s forwards}
+.hero-figure{position:absolute;right:0;bottom:0;z-index:1;width:clamp(210px,21vw,350px);pointer-events:none}
+.hero-figure video{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 15%),linear-gradient(to right,transparent 0,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 15%),linear-gradient(to right,transparent 0,#000 12%);mask-composite:intersect;opacity:0;animation:pf-fig 1.3s cubic-bezier(.16,.7,.2,1) .5s forwards}
 @keyframes pf-fig{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
 [data-theme="light"] .hero-figure{display:none}
 @media (max-width:940px){.hero-figure{display:none}}
 /* dim the corner glow only where the figure shows (desktop + dark) so its black bg blends seamlessly */
 @media (min-width:941px){html:not([data-theme="light"]) .hero-glow-br{opacity:.28}}
+/* shift hero content left on desktop so the big text clears the bottom-right video */
+@media (min-width:941px){[data-hero-embers]{padding-right:clamp(150px,27vw,440px)!important}[data-hero-embers] [data-scroll-cue]{left:calc(50% - clamp(75px,13.5vw,220px))!important}}
 </style>
 <link rel="stylesheet" href="portfolio.css">
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
@@ -84,7 +87,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   <div data-parallax="0.18" aria-hidden="true" style="position:absolute;left:7%;top:22%;width:min(340px,42vw);height:min(340px,42vw);background:radial-gradient(circle,color-mix(in srgb,var(--accent2) 32%,transparent),transparent 70%);filter:blur(34px);pointer-events:none"></div>
   <div class="hero-glow-br" data-parallax="-0.13" aria-hidden="true" style="position:absolute;right:5%;bottom:15%;width:min(300px,38vw);height:min(300px,38vw);background:radial-gradient(circle,color-mix(in srgb,var(--accent) 28%,transparent),transparent 70%);filter:blur(38px);pointer-events:none"></div>
 
-  <video class="hero-figure" src="assets/hero-coder.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="hero-figure" data-hero-fade aria-hidden="true"><video src="assets/hero-coder.mp4" autoplay muted loop playsinline preload="auto"></video></div>
 
   <div data-hero-fade style="position:relative;display:flex;flex-direction:column;align-items:center;width:100%">
   <div data-reveal data-reveal-delay="40" style="display:inline-flex;align-items:center;gap:11px;padding:9px 17px;border:1px solid var(--line);border-radius:100px;background:color-mix(in srgb,var(--surface) 60%,transparent);backdrop-filter:blur(8px);margin-bottom:34px">
@@ -102,7 +105,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   </div>
   </div>
 
-  <a href="#work" aria-label="Scroll to work" style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--muted)">
+  <a href="#work" data-scroll-cue aria-label="Scroll to work" style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--muted)">
     <span style="font-size:11px;letter-spacing:.24em;text-transform:uppercase">Scroll</span>
     <span style="width:26px;height:42px;border:1.5px solid var(--line);border-radius:20px;display:flex;justify-content:center;padding-top:8px"><span style="width:4px;height:8px;border-radius:4px;background:var(--accent);animation:pf-bob 1.6s infinite"></span></span>
   </a>
