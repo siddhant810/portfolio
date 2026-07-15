@@ -331,9 +331,10 @@
         for (var i = 0; i < heroFadeEls.length; i++) {
           var el = heroFadeEls[i], amt = parseFloat(el.getAttribute('data-hero-fade')) || 1;
           if (y > vh * 1.35) continue;
-          var p = clamp(y / (vh * 0.9), 0, 1);
+          // hold: no fade for the first 28% of the viewport so CTAs stay readable
+          var p = clamp((y - vh * 0.28) / (vh * 0.75), 0, 1);
           el.style.transform = 'translate3d(0,' + (y * 0.32 * amt).toFixed(1) + 'px,0)';
-          el.style.opacity = (1 - p * 1.1).toFixed(3);
+          el.style.opacity = clamp(1 - p * 1.1, 0, 1).toFixed(3);
         }
         return true;
       });
