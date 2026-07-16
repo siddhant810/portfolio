@@ -26,12 +26,10 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 .hero-copy [data-hero-title]{margin-left:0!important;margin-right:0!important}
 .hero-copy>p{margin-left:0!important;margin-right:0!important}
 .hero-copy [data-reveal][data-reveal-delay="340"]{justify-content:flex-start!important}
-.hero-figure{position:relative;z-index:1;justify-self:end;align-self:center;width:100%;max-width:460px;pointer-events:none}
+.hero-figure{position:relative;justify-self:end;align-self:center;width:100%;max-width:460px;pointer-events:none}
 .hero-figure video{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 11%,#000 89%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 10%,#000 94%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 11%,#000 89%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 10%,#000 94%,transparent 100%);mask-composite:intersect;opacity:0;animation:pf-fig 1.3s cubic-bezier(.16,.7,.2,1) .5s forwards}
 @keyframes pf-fig{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
 [data-theme="light"] .hero-figure{display:none}
-/* dim the corner glow behind the figure (desktop + dark) so its black bg blends */
-@media (min-width:941px){html:not([data-theme="light"]) .hero-glow-br{opacity:.22}}
 /* tablet + phone: stack — copy on top (centered), video below (centered) */
 @media (max-width:940px){
   [data-hero-embers]{align-items:flex-start;padding-top:clamp(96px,22vw,132px);padding-bottom:30px}
@@ -98,12 +96,10 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 <main>
 <section data-hero-embers data-screen-label="Hero" style="position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:130px clamp(20px,5vw,60px) 110px;overflow:hidden">
   <div aria-hidden="true" style="position:absolute;inset:0;background-image:radial-gradient(circle,var(--line) 1px,transparent 1px);background-size:34px 34px;opacity:.6;-webkit-mask-image:radial-gradient(80% 70% at 50% 45%,#000,transparent 100%);mask-image:radial-gradient(80% 70% at 50% 45%,#000,transparent 100%)"></div>
-  <div aria-hidden="true" style="position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:min(900px,120%);height:620px;background:radial-gradient(50% 50% at 50% 50%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 72%);pointer-events:none;filter:blur(6px)"></div>
-  <div data-parallax="0.18" aria-hidden="true" style="position:absolute;left:7%;top:22%;width:min(340px,42vw);height:min(340px,42vw);background:radial-gradient(circle,color-mix(in srgb,var(--accent2) 32%,transparent),transparent 70%);filter:blur(34px);pointer-events:none"></div>
-  <div class="hero-glow-br" data-parallax="-0.13" aria-hidden="true" style="position:absolute;right:5%;bottom:15%;width:min(300px,38vw);height:min(300px,38vw);background:radial-gradient(circle,color-mix(in srgb,var(--accent) 28%,transparent),transparent 70%);filter:blur(38px);pointer-events:none"></div>
+  <div data-parallax="0.18" aria-hidden="true" style="position:absolute;left:7%;top:22%;width:min(340px,42vw);height:min(340px,42vw);background:radial-gradient(circle,color-mix(in srgb,var(--accent2) 26%,transparent),transparent 70%);filter:blur(34px);pointer-events:none"></div>
 
   <div class="hero-inner">
-  <div class="hero-copy" data-hero-fade style="position:relative;display:flex;flex-direction:column;align-items:flex-start;width:100%">
+  <div class="hero-copy" style="position:relative;display:flex;flex-direction:column;align-items:flex-start;width:100%">
   <div data-reveal data-reveal-delay="40" style="display:inline-flex;align-items:center;gap:11px;padding:9px 17px;border:1px solid var(--line);border-radius:100px;background:color-mix(in srgb,var(--surface) 60%,transparent);backdrop-filter:blur(8px);margin-bottom:34px">
     <span style="width:8px;height:8px;border-radius:50%;background:#3ad07a;box-shadow:0 0 10px #3ad07a;animation:pf-pulse 2s infinite"></span>
     <span style="font-size:12.5px;letter-spacing:.08em;color:var(--fg-dim);font-weight:500">UI/UX &amp; Graphic Designer — Ambernath, India</span>
@@ -128,7 +124,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   </a>
 </section>
 
-<div style="margin-top:clamp(60px,11vh,150px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:26px 0;background:var(--bg2)">
+<div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:26px 0;background:var(--bg2)">
   <div data-marquee style="display:flex;white-space:nowrap;width:max-content;animation:pf-marquee 34s linear infinite;will-change:transform">
     <span style="display:inline-flex;align-items:center">UI/UX Design ✦ Brand Systems ✦ Prototyping ✦ Interaction Design ✦ Visual Identity ✦ Wireframing ✦ Design Systems ✦ UI/UX Design ✦ Brand Systems ✦ Prototyping ✦ Interaction Design ✦ Visual Identity ✦ Wireframing ✦ Design Systems ✦ </span>
     <span style="display:inline-flex;align-items:center" aria-hidden="true">UI/UX Design ✦ Brand Systems ✦ Prototyping ✦ Interaction Design ✦ Visual Identity ✦ Wireframing ✦ Design Systems ✦ UI/UX Design ✦ Brand Systems ✦ Prototyping ✦ Interaction Design ✦ Visual Identity ✦ Wireframing ✦ Design Systems ✦ </span>
