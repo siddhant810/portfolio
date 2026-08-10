@@ -63,7 +63,8 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 .rx-gallery[data-filter="cinematic"] .rx-vibepanel[data-vibe="cinematic"]{display:block;animation:rx-panel-in .5s cubic-bezier(.16,.7,.2,1) both}
 @keyframes rx-panel-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .rx-vibehead{max-width:62ch;margin-bottom:clamp(26px,4vw,44px)}
-.rx-plates{display:flex;flex-direction:column;gap:clamp(18px,3vw,30px);max-width:680px;margin:0 auto}
+.rx-plates{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,1.8vw,24px)}
+@media (max-width:600px){.rx-plates{grid-template-columns:1fr}}
 .rx-plate{position:relative;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface)}
 .rx-plate img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;transition:transform .8s cubic-bezier(.16,.7,.2,1)}
 .rx-plate:hover img{transform:scale(1.035)}
