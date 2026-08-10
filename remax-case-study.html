@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remax Furnitures Case Study — Siddhant Gaikwad</title>
+<meta name="description" content="Remax Furnitures — a social-media campaign case study by Siddhant Gaikwad. Six products, three art directions, nine grid-synced Instagram carousels, and a Diwali story.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ff5a1e'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial,sans-serif' font-size='38' font-weight='800' fill='%23180c05'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist+Mono:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem('pf-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+<style>
+:root{--bg:#0b0908;--bg2:#120f0d;--surface:#16120f;--surface2:#1f1814;--line:rgba(255,255,255,.09);--fg:#f3ede4;--fg-dim:#b3a89b;--muted:#8a7d70;--accent:#ff5a1e;--accent2:#ff8a3d;--accent-ink:#180c05;--glow:rgba(255,90,30,.5);--font-display:'Bricolage Grotesque',sans-serif;--font-serif:'Instrument Serif',Georgia,serif;--font-sans:'Hanken Grotesk','Space Grotesk',sans-serif;--font-mono:'Geist Mono',ui-monospace,monospace}
+[data-theme="light"]{--bg:#f4efe7;--bg2:#ece3d7;--surface:#ffffff;--surface2:#f7f1e8;--line:rgba(26,20,16,.12);--fg:#1a1410;--fg-dim:#4a4038;--muted:#786a5c;--accent:#dc450b;--accent2:#ff6a2a;--accent-ink:#ffffff;--glow:rgba(220,69,11,.32)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .5s ease,color .5s ease;line-height:1.5}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent)}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--accent);color:var(--accent-ink)}
+h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
+</style>
+<link rel="stylesheet" href="portfolio.css">
+<style>
+/* ===== Remax case study — bespoke ===== */
+.rx-tabs{display:inline-flex;gap:6px;padding:6px;border:1px solid var(--line);border-radius:100px;background:var(--surface);flex-wrap:wrap}
+.rx-tab{border:none;background:transparent;color:var(--fg-dim);font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;transition:background .3s ease,color .3s ease;white-space:nowrap}
+.rx-tab[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.rx-pano-wrap{position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--surface)}
+#rxPano{width:100%;height:auto;display:block;transition:opacity .45s ease}
+.rx-copy[hidden]{display:none}
+/* stitch grid */
+.rx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.2vw,14px);transition:gap .65s cubic-bezier(.7,0,.2,1)}
+.rx-grid img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;border-radius:12px;transition:border-radius .65s cubic-bezier(.7,0,.2,1),opacity .35s ease}
+.rx-grid.stitched{gap:0}
+.rx-grid.stitched img{border-radius:0}
+.rx-grid.stitched img:first-child{border-radius:14px 0 0 14px}
+.rx-grid.stitched img:last-child{border-radius:0 14px 14px 0}
+.rx-seam{pointer-events:none;position:absolute;top:0;bottom:0;width:1px;background:color-mix(in srgb,var(--accent) 60%,transparent);opacity:0;transition:opacity .4s ease}
+.rx-gridbox[data-stitched="false"] .rx-seam{opacity:.55}
+/* filter chips */
+.rx-chip{border:1px solid var(--line);background:var(--surface);color:var(--fg-dim);font-weight:600;font-size:13px;padding:9px 18px;border-radius:100px;transition:all .3s ease}
+.rx-chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+/* gallery + carousels */
+.rx-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.rx-gallery[data-filter="homely"] .rx-post:not([data-dir="homely"]),
+.rx-gallery[data-filter="studio"] .rx-post:not([data-dir="studio"]),
+.rx-gallery[data-filter="cinematic"] .rx-post:not([data-dir="cinematic"]){display:none}
+.rx-post{position:relative;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface)}
+.rx-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rx-track::-webkit-scrollbar{display:none}
+.rx-track img{flex:0 0 100%;width:100%;aspect-ratio:4/5;object-fit:cover;scroll-snap-align:center;display:block}
+.rx-arrow{position:absolute;top:calc(50% - 40px);transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 55%,transparent);backdrop-filter:blur(8px);color:var(--fg);font-size:20px;line-height:1;display:grid;place-items:center;opacity:0;transition:opacity .3s ease,background .3s ease}
+.rx-post:hover .rx-arrow{opacity:1}
+.rx-arrow:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.rx-arrow-l{left:12px}.rx-arrow-r{right:12px}
+.rx-dots{display:flex;justify-content:center;gap:7px;padding:14px 0 4px}
+.rx-dot{width:7px;height:7px;border-radius:50%;border:none;padding:0;background:var(--line);transition:all .3s ease}
+.rx-dot[aria-current="true"]{background:var(--accent);width:20px;border-radius:4px}
+.rx-cap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:2px 18px 18px;font-size:13px}
+.rx-cap b{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--fg)}
+.rx-cap span{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (hover:none){.rx-arrow{display:none}}
+/* diwali phone */
+.rx-phone{position:relative;width:min(300px,78vw);margin:0 auto;border:10px solid #1a1512;border-radius:40px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px var(--line)}
+.rx-phone img{width:100%;display:block}
+.rx-glow{position:absolute;inset:-30% -20%;z-index:-1;background:radial-gradient(50% 50% at 50% 50%,color-mix(in srgb,var(--accent) 30%,transparent),transparent 70%);filter:blur(50px);pointer-events:none}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="portfolio.js"></script>
+</head>
+<body>
+<span id="top"></span>
+
+<nav data-nav aria-label="Primary" style="position:fixed;top:0;left:0;right:0;z-index:9990;display:flex;align-items:center;justify-content:space-between;padding:clamp(14px,2vw,22px) clamp(20px,5vw,60px);font-family:var(--font-sans)">
+  <span data-progress style="position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--accent);box-shadow:0 0 12px var(--glow)"></span>
+  <a href="index.html" data-magnetic="0.18" aria-label="Siddhant Gaikwad — home" style="display:flex;align-items:center;gap:12px;color:var(--fg)">
+    <span style="width:38px;height:38px;border-radius:11px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:19px;box-shadow:0 8px 22px -8px var(--glow)">S</span>
+    <span data-desktop style="display:flex;flex-direction:column;line-height:1.05">
+      <span style="font-family:var(--font-display);font-weight:700;font-size:16px;letter-spacing:-.01em">Siddhant Gaikwad</span>
+      <span style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);font-weight:600">UI/UX · Graphic Designer</span>
+    </span>
+  </a>
+  <div data-desktop style="display:flex;align-items:center;gap:clamp(10px,2vw,34px)">
+    <a href="work.html" class="hv-fg" style="position:relative;padding:8px 2px;color:var(--fg-dim);font-size:14.5px;font-weight:500">Work<span style="position:absolute;left:50%;bottom:-3px;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--glow)"></span></a>
+    <a href="about.html" class="hv-fg" style="position:relative;padding:8px 2px;color:var(--fg-dim);font-size:14.5px;font-weight:500">About</a>
+    <a href="contact.html" class="hv-fg" style="position:relative;padding:8px 2px;color:var(--fg-dim);font-size:14.5px;font-weight:500">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button data-theme-toggle data-magnetic="0.2" aria-label="Toggle color theme" style="width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);display:grid;place-items:center">
+      <span data-theme-icon="dark" style="display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg></span>
+      <span data-theme-icon="light" style="display:none;place-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span>
+    </button>
+    <a data-desktop href="contact.html" data-magnetic="0.25" style="display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);padding:11px 20px;border-radius:100px;font-weight:600;font-size:14px">Let's talk <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <button data-mobile data-menu-toggle aria-label="Open menu" aria-expanded="false" style="width:46px;height:42px;border:1px solid var(--line);border-radius:12px;background:transparent;display:grid;place-items:center;gap:5px;color:var(--fg)">
+      <span style="display:block;width:20px;height:2px;background:currentColor;border-radius:2px"></span>
+      <span style="display:block;width:20px;height:2px;background:currentColor;border-radius:2px"></span>
+    </button>
+  </div>
+</nav>
+
+<div data-mobile-nav data-open="false" style="position:fixed;inset:0;z-index:9991;background:var(--bg2);display:flex;flex-direction:column;justify-content:center;gap:4px;padding:clamp(28px,7vw,60px);font-family:var(--font-sans)">
+  <button data-menu-toggle aria-label="Close menu" style="position:absolute;top:22px;right:24px;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--fg);display:grid;place-items:center;font-size:22px">✕</button>
+  <span style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:600;font-family:var(--font-mono);margin-bottom:14px">Menu</span>
+  <a href="index.html" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);color:var(--fg);letter-spacing:-.02em;line-height:1.1">Home</a>
+  <a href="work.html" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);color:var(--fg);letter-spacing:-.02em;line-height:1.1">Work</a>
+  <a href="about.html" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);color:var(--fg);letter-spacing:-.02em;line-height:1.1">About</a>
+  <a href="contact.html" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);color:var(--fg);letter-spacing:-.02em;line-height:1.1">Contact</a>
+  <div style="display:flex;gap:22px;margin-top:34px;flex-wrap:wrap">
+    <a href="mailto:siddhantonwork@gmail.com" style="color:var(--fg-dim);font-size:15px">siddhantonwork@gmail.com</a>
+    <a href="https://www.linkedin.com/in/siddhant-gaikwad-a028a3271/" target="_blank" rel="noopener" style="color:var(--fg-dim);font-size:15px">LinkedIn ↗</a>
+  </div>
+</div>
+
+<main>
+<header data-screen-label="Remax hero" data-pad style="max-width:1180px;margin:0 auto;padding:clamp(120px,15vw,190px) clamp(20px,5vw,60px) clamp(30px,4vw,50px)">
+  <a href="work.html" data-reveal class="hv-accent" style="display:inline-flex;align-items:center;gap:9px;color:var(--fg-dim);font-size:14px;font-weight:500;margin-bottom:34px"><span style="display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:50%">←</span> All work</a>
+  <div data-reveal style="display:inline-flex;align-items:center;gap:10px;padding:8px 15px;border:1px solid var(--line);border-radius:100px;margin-bottom:22px"><span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;font-family:var(--font-mono)">Case Study · 04</span></div>
+  <h1 data-split style="font-family:var(--font-display);font-weight:800;font-size:clamp(46px,9vw,120px);line-height:.92;letter-spacing:-.04em;color:var(--fg)">Remax Furnitures — <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)">Designed for Living</span></h1>
+  <p data-reveal data-reveal-delay="140" style="margin-top:24px;max-width:60ch;font-size:clamp(16px,1.8vw,21px);color:var(--fg-dim);line-height:1.6">Six product photos, one brand voice, three distinct moods — a social campaign of nine Instagram carousels whose covers line up into a single seamless shopfront on the grid.</p>
+
+  <div data-reveal data-reveal-delay="200" style="display:flex;gap:26px;flex-wrap:wrap;margin-top:30px">
+    <div><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin-bottom:5px">Client</div><div style="font-size:15px;color:var(--fg);font-weight:500">Remax Furnitures</div></div>
+    <div><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin-bottom:5px">Type</div><div style="font-size:15px;color:var(--fg);font-weight:500">Social Media Campaign</div></div>
+    <div><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin-bottom:5px">Deliverables</div><div style="font-size:15px;color:var(--fg);font-weight:500">9 carousels · 1 story</div></div>
+    <div><div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin-bottom:5px">Craft</div><div style="font-size:15px;color:var(--fg);font-weight:500">Art Direction · Layout · Retouch</div></div>
+  </div>
+</header>
+
+<div data-pad style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,60px)">
+  <div data-reveal data-tilt="3" data-clip style="border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--surface)"><img src="assets/remax/grid-cinematic.jpg" alt="Remax Furnitures — cinematic campaign panorama" style="width:100%;display:block"/></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px" data-stack-sm>
+    <div data-reveal style="border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--surface)"><div style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4vw,46px);color:var(--accent);line-height:1"><span data-count="3" data-suffix="">3</span></div><div style="font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.4">Art directions</div></div>
+    <div data-reveal style="border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--surface)"><div style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4vw,46px);color:var(--accent);line-height:1"><span data-count="9" data-suffix="">9</span></div><div style="font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.4">Carousel posts</div></div>
+    <div data-reveal style="border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--surface)"><div style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4vw,46px);color:var(--accent);line-height:1"><span data-count="27" data-suffix="">27</span></div><div style="font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.4">Designed frames</div></div>
+    <div data-reveal style="border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--surface)"><div style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,4vw,46px);color:var(--accent);line-height:1"><span data-count="6" data-suffix="">6</span></div><div style="font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.4">Hero products</div></div>
+  </div>
+</div>
+
+<article data-pad style="max-width:1180px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,5vw,60px);display:flex;flex-direction:column;gap:clamp(56px,8vw,110px)">
+
+  <section data-screen-label="Overview" data-reveal style="display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,60px)" data-stack>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;color:var(--fg)"><span style="display:block;font-size:13px;color:var(--accent);font-weight:800;margin-bottom:8px">01</span>The Brief</h2>
+    <div style="display:flex;flex-direction:column;gap:18px;max-width:60ch">
+      <p style="font-size:clamp(17px,2vw,22px);line-height:1.55;color:var(--fg)">Remax Furnitures handed over <strong style="color:var(--fg)">six product photographs</strong> — an armchair, a sofa, a writing desk, a wing chair, a sculptural console and a marble side table — and one ask: make them feel like a brand, not a catalogue.</p>
+      <p style="font-size:16.5px;line-height:1.75;color:var(--fg-dim)">So I built three art directions from the same six pieces, wrote the on-image copy, and laid out nine Instagram carousels plus a festive story — designed so the covers snap together into one continuous scene on the profile grid.</p>
+    </div>
+  </section>
+
+  <!-- ===== Directions + synced grid (interactive) ===== -->
+  <section data-screen-label="Directions" data-reveal data-rx data-dir="homely" style="scroll-margin-top:100px">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px"><h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3vw,38px);letter-spacing:-.025em;color:var(--fg)"><span style="font-size:13px;color:var(--accent);font-weight:800;margin-right:12px">02</span>One shoot, three moods</h2><span style="flex:1;height:1px;background:var(--line)"></span></div>
+
+    <div style="display:flex;justify-content:center;margin-bottom:26px">
+      <div class="rx-tabs" role="tablist" aria-label="Art direction">
+        <button class="rx-tab" data-setdir="homely" aria-pressed="true">Homely</button>
+        <button class="rx-tab" data-setdir="studio" aria-pressed="false">Studio</button>
+        <button class="rx-tab" data-setdir="cinematic" aria-pressed="false">Cinematic</button>
+      </div>
+    </div>
+
+    <div class="rx-pano-wrap" data-tilt="2"><img id="rxPano" src="assets/remax/grid-homely.jpg" alt="Active art direction panorama"/></div>
+
+    <div style="margin-top:22px;max-width:64ch">
+      <div class="rx-copy" data-dir-copy="homely"><p style="font-size:16.5px;line-height:1.7;color:var(--fg-dim)"><strong style="color:var(--fg);font-weight:600">Homely.</strong> A lived-in room — soft daylight, curtains, greenery and a patterned rug. The furniture is styled the way you'd actually keep it, so the buyer pictures it in their own home.</p></div>
+      <div class="rx-copy" data-dir-copy="studio" hidden><p style="font-size:16.5px;line-height:1.7;color:var(--fg-dim)"><strong style="color:var(--fg);font-weight:600">Studio.</strong> A clean white set and an elegant serif wordmark. Every piece lined up and evenly lit — the crisp, catalogue-grade view that lets the craftsmanship speak.</p></div>
+      <div class="rx-copy" data-dir-copy="cinematic" hidden><p style="font-size:16.5px;line-height:1.7;color:var(--fg-dim)"><strong style="color:var(--fg);font-weight:600">Cinematic.</strong> Golden-hour light rakes across the wall in hard window shadows. Bold, high-contrast and premium — the mood-first frame that stops the scroll.</p></div>
+    </div>
+
+    <!-- synced grid reveal -->
+    <div class="rx-gridbox" data-stitched="false" style="margin-top:clamp(40px,6vw,70px);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,34px);background:linear-gradient(160deg,var(--surface),var(--bg2))">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px">
+        <div style="max-width:46ch">
+          <span style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px"><span style="width:22px;height:1px;background:var(--accent)"></span>Grid trick</span>
+          <h3 style="font-family:var(--font-display);font-weight:700;font-size:clamp(20px,2.4vw,27px);letter-spacing:-.02em;color:var(--fg)">Three posts that read as one</h3>
+          <p style="margin-top:8px;font-size:14.5px;line-height:1.6;color:var(--fg-dim)">Each carousel's cover is one-third of a wider scene. Posted in order, they line up across the profile row into a single storefront. Toggle to watch the three covers close the gap.</p>
+        </div>
+        <button data-stitch-btn aria-pressed="false" data-magnetic="0.15" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--accent-ink);border:none;padding:12px 22px;border-radius:100px;font-weight:600;font-size:14.5px;flex-shrink:0"><span data-stitch-label>Stitch the covers</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg></button>
+      </div>
+      <div style="position:relative">
+        <div class="rx-grid">
+          <img class="rx-cell-img" src="assets/remax/homely-1-1.jpg" alt="Grid cover 1" loading="lazy"/>
+          <img class="rx-cell-img" src="assets/remax/homely-2-1.jpg" alt="Grid cover 2" loading="lazy"/>
+          <img class="rx-cell-img" src="assets/remax/homely-3-1.jpg" alt="Grid cover 3" loading="lazy"/>
+        </div>
+        <span class="rx-seam" style="left:calc(33.333% - .5px)"></span>
+        <span class="rx-seam" style="left:calc(66.666% - .5px)"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Carousels gallery ===== -->
+  <section data-screen-label="Carousels" data-reveal>
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px"><h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3vw,38px);letter-spacing:-.025em;color:var(--fg)"><span style="font-size:13px;color:var(--accent);font-weight:800;margin-right:12px">03</span>Inside the carousels</h2><span style="flex:1;height:1px;background:var(--line)"></span></div>
+    <p style="max-width:60ch;font-size:15.5px;line-height:1.7;color:var(--fg-dim);margin-bottom:26px">Every post opens on its styled cover, then swipes to two product spotlights with headline, name and tagline. Swipe any card — or filter by direction.</p>
+
+    <div style="display:flex;gap:9px;flex-wrap:wrap;margin-bottom:28px">
+      <button class="rx-chip" data-filter="all" aria-pressed="true">All nine</button>
+      <button class="rx-chip" data-filter="homely" aria-pressed="false">Homely</button>
+      <button class="rx-chip" data-filter="studio" aria-pressed="false">Studio</button>
+      <button class="rx-chip" data-filter="cinematic" aria-pressed="false">Cinematic</button>
+    </div>
+
+    <div class="rx-gallery" data-filter="all">
+      <!-- HOMELY -->
+      <figure class="rx-post" data-dir="homely">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/homely-1-1.jpg" loading="lazy" alt="Homely carousel 1 — cover"/>
+          <img src="assets/remax/homely-1-2.jpg" loading="lazy" alt="Homely carousel 1 — slide 2"/>
+          <img src="assets/remax/homely-1-3.jpg" loading="lazy" alt="Homely carousel 1 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Homely</b><span>Carousel 01</span></figcaption>
+      </figure>
+      <figure class="rx-post" data-dir="homely">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/homely-2-1.jpg" loading="lazy" alt="Homely carousel 2 — cover"/>
+          <img src="assets/remax/homely-2-2.jpg" loading="lazy" alt="Homely carousel 2 — slide 2"/>
+          <img src="assets/remax/homely-2-3.jpg" loading="lazy" alt="Homely carousel 2 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Homely</b><span>Carousel 02</span></figcaption>
+      </figure>
+      <figure class="rx-post" data-dir="homely">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/homely-3-1.jpg" loading="lazy" alt="Homely carousel 3 — cover"/>
+          <img src="assets/remax/homely-3-2.jpg" loading="lazy" alt="Homely carousel 3 — slide 2"/>
+          <img src="assets/remax/homely-3-3.jpg" loading="lazy" alt="Homely carousel 3 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Homely</b><span>Carousel 03</span></figcaption>
+      </figure>
+      <!-- STUDIO -->
+      <figure class="rx-post" data-dir="studio">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/studio-1-1.jpg" loading="lazy" alt="Studio carousel 1 — cover"/>
+          <img src="assets/remax/studio-1-2.jpg" loading="lazy" alt="Studio carousel 1 — slide 2"/>
+          <img src="assets/remax/studio-1-3.jpg" loading="lazy" alt="Studio carousel 1 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Studio</b><span>Carousel 01</span></figcaption>
+      </figure>
+      <figure class="rx-post" data-dir="studio">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/studio-2-1.jpg" loading="lazy" alt="Studio carousel 2 — cover"/>
+          <img src="assets/remax/studio-2-2.jpg" loading="lazy" alt="Studio carousel 2 — slide 2"/>
+          <img src="assets/remax/studio-2-3.jpg" loading="lazy" alt="Studio carousel 2 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Studio</b><span>Carousel 02</span></figcaption>
+      </figure>
+      <figure class="rx-post" data-dir="studio">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/studio-3-1.jpg" loading="lazy" alt="Studio carousel 3 — cover"/>
+          <img src="assets/remax/studio-3-2.jpg" loading="lazy" alt="Studio carousel 3 — slide 2"/>
+          <img src="assets/remax/studio-3-3.jpg" loading="lazy" alt="Studio carousel 3 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Studio</b><span>Carousel 03</span></figcaption>
+      </figure>
+      <!-- CINEMATIC -->
+      <figure class="rx-post" data-dir="cinematic">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/cinematic-1-1.jpg" loading="lazy" alt="Cinematic carousel 1 — cover"/>
+          <img src="assets/remax/cinematic-1-2.jpg" loading="lazy" alt="Cinematic carousel 1 — slide 2"/>
+          <img src="assets/remax/cinematic-1-3.jpg" loading="lazy" alt="Cinematic carousel 1 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Cinematic</b><span>Carousel 01</span></figcaption>
+      </figure>
+      <figure class="rx-post" data-dir="cinematic">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/cinematic-2-1.jpg" loading="lazy" alt="Cinematic carousel 2 — cover"/>
+          <img src="assets/remax/cinematic-2-2.jpg" loading="lazy" alt="Cinematic carousel 2 — slide 2"/>
+          <img src="assets/remax/cinematic-2-3.jpg" loading="lazy" alt="Cinematic carousel 2 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Cinematic</b><span>Carousel 02</span></figcaption>
+      </figure>
+      <figure class="rx-post" data-dir="cinematic">
+        <div class="rx-track" data-lenis-prevent>
+          <img src="assets/remax/cinematic-3-1.jpg" loading="lazy" alt="Cinematic carousel 3 — cover"/>
+          <img src="assets/remax/cinematic-3-2.jpg" loading="lazy" alt="Cinematic carousel 3 — slide 2"/>
+          <img src="assets/remax/cinematic-3-3.jpg" loading="lazy" alt="Cinematic carousel 3 — slide 3"/>
+        </div>
+        <button class="rx-arrow rx-arrow-l" data-prev aria-label="Previous slide">‹</button>
+        <button class="rx-arrow rx-arrow-r" data-next aria-label="Next slide">›</button>
+        <div class="rx-dots"><button class="rx-dot" aria-current="true" aria-label="Slide 1"></button><button class="rx-dot" aria-label="Slide 2"></button><button class="rx-dot" aria-label="Slide 3"></button></div>
+        <figcaption class="rx-cap"><b>Cinematic</b><span>Carousel 03</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== Diwali ===== -->
+  <section data-screen-label="Diwali" data-reveal style="display:grid;grid-template-columns:1fr 340px;gap:clamp(30px,5vw,60px);align-items:center" data-stack>
+    <div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px"><h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3vw,38px);letter-spacing:-.025em;color:var(--fg)"><span style="font-size:13px;color:var(--accent);font-weight:800;margin-right:12px">04</span>A festive corner</h2></div>
+      <p style="font-size:16.5px;line-height:1.75;color:var(--fg-dim);max-width:52ch;margin-bottom:18px">To ride the season, I designed a <strong style="color:var(--fg)">Diwali story</strong> — the cane armchair lit by diyas, marigold garlands and a brass urli of floating flames. Warm, intimate, and unmistakably on-brand.</p>
+      <blockquote style="font-family:var(--font-serif);font-style:italic;font-size:clamp(20px,2.6vw,30px);line-height:1.3;color:var(--fg);border-left:2px solid var(--accent);padding-left:22px">"Every corner tells a story — make yours unforgettable."</blockquote>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:24px">
+        <span style="padding:8px 15px;border:1px solid var(--line);border-radius:100px;font-size:13px;color:var(--fg-dim)">9:16 Story</span>
+        <span style="padding:8px 15px;border:1px solid var(--line);border-radius:100px;font-size:13px;color:var(--fg-dim)">Festive Campaign</span>
+        <span style="padding:8px 15px;border:1px solid var(--line);border-radius:100px;font-size:13px;color:var(--fg-dim)">Mood Lighting</span>
+      </div>
+    </div>
+    <div class="rx-phone" data-tilt="4"><span class="rx-glow"></span><img src="assets/remax/diwali.jpg" alt="Remax Furnitures — Happy Diwali Instagram story" loading="lazy"/></div>
+  </section>
+
+  <!-- ===== Learnings ===== -->
+  <section data-screen-label="Learnings" data-reveal style="display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,60px)" data-stack>
+    <h2 style="font-family:var(--font-display);font-weight:700;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;color:var(--fg)"><span style="display:block;font-size:13px;color:var(--accent);font-weight:800;margin-bottom:8px">05</span>What I Learned</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" data-stack-sm>
+      <div style="border:1px solid var(--line);border-radius:16px;padding:26px;background:linear-gradient(160deg,var(--surface),var(--bg2))"><h3 style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--fg);margin-bottom:10px;line-height:1.2">One asset set, many stories</h3><p style="font-size:14.5px;line-height:1.65;color:var(--fg-dim)">The same six photos can feel homely, clinical or cinematic — direction, light and type do more work than new photography ever could.</p></div>
+      <div style="border:1px solid var(--line);border-radius:16px;padding:26px;background:linear-gradient(160deg,var(--surface),var(--bg2))"><h3 style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--fg);margin-bottom:10px;line-height:1.2">Design for the grid, not the post</h3><p style="font-size:14.5px;line-height:1.65;color:var(--fg-dim)">Planning the covers as one panorama turns a profile into a storefront — a small constraint that makes the whole feed look intentional.</p></div>
+    </div>
+  </section>
+
+  <nav data-reveal aria-label="Case study navigation" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:clamp(30px,5vw,50px);border-top:1px solid var(--line)">
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <a href="prime-case-study.html" data-cursor="Previous" data-magnetic="0.15" class="hv-border" style="display:inline-flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:16px;padding:16px 22px;color:var(--fg)"><span style="color:var(--accent);font-size:22px">←</span><span><span style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono)">Previous</span><span style="display:block;font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--fg)">PRIME Hydration</span></span></a>
+    </div>
+    <a href="contact.html" data-magnetic="0.15" style="display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);border-radius:16px;padding:16px 24px;font-weight:600;font-size:15px">Start a project →</a>
+  </nav>
+</article>
+</main>
+
+<footer style="position:relative;background:var(--bg2);border-top:1px solid var(--line);padding:clamp(70px,10vw,130px) clamp(20px,5vw,60px) 40px;font-family:var(--font-sans);overflow:hidden">
+  <div style="position:absolute;left:50%;top:-40%;transform:translateX(-50%);width:120%;height:80%;background:radial-gradient(50% 60% at 50% 50%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%);pointer-events:none"></div>
+  <div style="max-width:1240px;margin:0 auto;position:relative">
+    <div data-reveal style="display:flex;flex-direction:column;gap:6px;margin-bottom:clamp(48px,7vw,90px)">
+      <span style="font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:600;font-family:var(--font-mono);margin-bottom:10px">Let's work together</span>
+      <a href="mailto:siddhantonwork@gmail.com" data-cursor="Email me" data-magnetic="0.14" style="font-family:var(--font-display);font-weight:700;letter-spacing:-.03em;line-height:.98;font-size:clamp(44px,9vw,120px);color:var(--fg);max-width:14ch">Let's build something <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;color:var(--accent)">memorable.</span></a>
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:30px">
+        <a href="contact.html" data-magnetic="0.25" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--accent-ink);padding:15px 26px;border-radius:100px;font-weight:600;font-size:15px">Start a project <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="assets/Siddhant_Gaikwad_Resume.pdf" target="_blank" rel="noopener" data-no-wipe data-magnetic="0.2" class="hv-border" style="display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);color:var(--fg);padding:15px 26px;border-radius:100px;font-weight:600;font-size:15px">Download résumé <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg></a>
+      </div>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-top:44px;border-top:1px solid var(--line)" data-stack>
+      <div>
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px">
+          <span style="width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:17px">S</span>
+          <span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--fg)">Siddhant Gaikwad</span>
+        </div>
+        <p style="color:var(--muted);font-size:14.5px;line-height:1.7;max-width:34ch">UI/UX &amp; graphic designer based in Ambernath, Maharashtra — crafting digital products that feel as good as they look.</p>
+        <div style="display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:8px 15px;border:1px solid var(--line);border-radius:100px">
+          <span style="width:8px;height:8px;border-radius:50%;background:#3ad07a;box-shadow:0 0 10px #3ad07a;animation:pf-pulse 2s infinite"></span>
+          <span style="font-size:12.5px;color:var(--fg-dim);font-weight:500">Open to work — full-time &amp; freelance</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:13px">
+        <span style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);font-weight:600;margin-bottom:4px">Navigate</span>
+        <a href="index.html" class="hv-accent" style="color:var(--fg-dim);font-size:14.5px">Home</a>
+        <a href="work.html" class="hv-accent" style="color:var(--fg-dim);font-size:14.5px">Work</a>
+        <a href="about.html" class="hv-accent" style="color:var(--fg-dim);font-size:14.5px">About</a>
+        <a href="contact.html" class="hv-accent" style="color:var(--fg-dim);font-size:14.5px">Contact</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:13px">
+        <span style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);font-weight:600;margin-bottom:4px">Connect</span>
+        <a href="mailto:siddhantonwork@gmail.com" class="hv-accent" style="color:var(--fg-dim);font-size:14.5px">Email</a>
+        <a href="tel:+918767435776" class="hv-accent" style="color:var(--fg-dim);font-size:14.5px">+91 87674 35776</a>
+        <a href="https://www.linkedin.com/in/siddhant-gaikwad-a028a3271/" target="_blank" rel="noopener" class="hv-accent" style="color:var(--fg-dim);font-size:14.5px">LinkedIn ↗</a>
+        <a href="https://drive.google.com/drive/folders/1khdMNfrOngfyCC2_Dh0tD9dKHTYjHYCh?usp=drive_link" target="_blank" rel="noopener" class="hv-accent" style="color:var(--fg-dim);font-size:14.5px">Drive portfolio ↗</a>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:34px;margin-top:40px;border-top:1px solid var(--line)">
+      <span style="color:var(--muted);font-size:13px">© 2026 Siddhant Gaikwad · Designed &amp; built with intent</span>
+      <a href="#top" class="hv-accent" style="display:inline-flex;align-items:center;gap:8px;color:var(--fg-dim);font-size:13px;font-weight:500">Back to top <span style="display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line);border-radius:50%">↑</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.querySelector('[data-rx]');
+  if(root){
+    var current=root.getAttribute('data-dir')||'homely';
+    var pano=document.getElementById('rxPano');
+    var cells=[].slice.call(document.querySelectorAll('.rx-cell-img'));
+    function swap(img,src){ if(!img)return; img.style.opacity='0'; var pre=new Image(); pre.onload=function(){ img.src=src; img.style.opacity='1'; }; pre.onerror=function(){ img.src=src; img.style.opacity='1'; }; pre.src=src; }
+    function setDir(dir){
+      if(dir===current) { syncTabs(dir); return; }
+      current=dir; root.setAttribute('data-dir',dir);
+      syncTabs(dir);
+      swap(pano,'assets/remax/grid-'+dir+'.jpg');
+      cells.forEach(function(im,i){ swap(im,'assets/remax/'+dir+'-'+(i+1)+'-1.jpg'); });
+      document.querySelectorAll('[data-dir-copy]').forEach(function(c){ c.hidden=c.getAttribute('data-dir-copy')!==dir; });
+    }
+    function syncTabs(dir){ document.querySelectorAll('[data-setdir]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-setdir')===dir?'true':'false'); }); }
+    document.querySelectorAll('[data-setdir]').forEach(function(b){ b.addEventListener('click',function(){ setDir(b.getAttribute('data-setdir')); }); });
+
+    var grid=document.querySelector('.rx-grid'), box=document.querySelector('.rx-gridbox'), sBtn=document.querySelector('[data-stitch-btn]');
+    if(grid&&sBtn){ sBtn.addEventListener('click',function(){
+      var on=grid.classList.toggle('stitched');
+      if(box) box.setAttribute('data-stitched', on?'true':'false');
+      sBtn.setAttribute('aria-pressed', on?'true':'false');
+      var lbl=sBtn.querySelector('[data-stitch-label]'); if(lbl) lbl.textContent=on?'View as grid':'Stitch the covers';
+    }); }
+  }
+
+  var gallery=document.querySelector('.rx-gallery');
+  document.querySelectorAll('[data-filter]').forEach(function(b){ b.addEventListener('click',function(){
+    if(gallery) gallery.setAttribute('data-filter', b.getAttribute('data-filter'));
+    document.querySelectorAll('[data-filter]').forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+  }); });
+
+  [].slice.call(document.querySelectorAll('.rx-post')).forEach(function(post){
+    var track=post.querySelector('.rx-track'); if(!track) return;
+    var dots=[].slice.call(post.querySelectorAll('.rx-dot'));
+    function idx(){ return track.clientWidth? Math.round(track.scrollLeft/track.clientWidth):0; }
+    function go(d){ track.scrollTo({left:(idx()+d)*track.clientWidth, behavior:'smooth'}); }
+    var p=post.querySelector('[data-prev]'), n=post.querySelector('[data-next]');
+    if(p) p.addEventListener('click',function(){go(-1);});
+    if(n) n.addEventListener('click',function(){go(1);});
+    dots.forEach(function(dt,k){ dt.addEventListener('click',function(){ track.scrollTo({left:k*track.clientWidth,behavior:'smooth'}); }); });
+    track.addEventListener('scroll',function(){ clearTimeout(track._t); track._t=setTimeout(function(){ var i=idx(); dots.forEach(function(dt,k){ dt.setAttribute('aria-current', k===i?'true':'false'); }); },60); },{passive:true});
+  });
+})();
+if (window.PF) PF.init();
+addEventListener('load', function () { if (window.PF) PF.init(); });
+</script>
+</body>
+</html>
