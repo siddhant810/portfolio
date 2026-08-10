@@ -29,11 +29,21 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 .rx-tab{border:none;background:transparent;color:var(--fg-dim);font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;transition:background .3s ease,color .3s ease;white-space:nowrap}
 .rx-tab[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
 .rx-pano-wrap{position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--surface)}
-#rxPano{width:100%;height:auto;display:block;transition:opacity .45s ease}
+#rxPano{width:100%;height:auto;display:block;transition:opacity .55s ease,filter .55s ease,transform .55s ease}
 .rx-copy[hidden]{display:none}
+.rx-copywrap{transition:opacity .4s ease,transform .4s ease}
+[data-rx].rx-swapping #rxPano{opacity:0;filter:blur(7px);transform:scale(1.02)}
+[data-rx].rx-swapping .rx-copywrap{opacity:0;transform:translateY(8px)}
 /* stitch grid */
 .rx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.2vw,14px);transition:gap .65s cubic-bezier(.7,0,.2,1)}
-.rx-grid img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;border-radius:12px;transition:border-radius .65s cubic-bezier(.7,0,.2,1),opacity .35s ease}
+.rx-grid img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;border-radius:12px;transition:border-radius .65s cubic-bezier(.7,0,.2,1),opacity .5s ease,filter .5s ease}
+[data-rx-stitch].sw .rx-grid img{opacity:0;filter:blur(6px)}
+.rx-vibes{display:inline-flex;gap:5px;padding:4px;border:1px solid var(--line);border-radius:100px;background:var(--surface)}
+.rx-vibe{border:none;background:transparent;color:var(--fg-dim);font-weight:600;font-size:12.5px;padding:7px 14px;border-radius:100px;transition:all .3s ease;white-space:nowrap}
+.rx-vibe[aria-pressed="true"]{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.rx-auto{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rx-auto i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--glow);animation:pf-pulse 2s infinite;font-style:normal}
+@media (max-width:620px){.rx-gridbox .rx-autocol{align-items:flex-start!important;width:100%}}
 .rx-grid.stitched{gap:0}
 .rx-grid.stitched img{border-radius:0}
 .rx-grid.stitched img:first-child{border-radius:14px 0 0 14px}
@@ -163,21 +173,29 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 
     <div class="rx-pano-wrap" data-tilt="2"><img id="rxPano" src="assets/remax/grid-homely.jpg" alt="Active art direction panorama"/></div>
 
-    <div style="margin-top:22px;max-width:64ch">
+    <div class="rx-copywrap" style="margin-top:22px;max-width:64ch">
       <div class="rx-copy" data-dir-copy="homely"><p style="font-size:16.5px;line-height:1.7;color:var(--fg-dim)"><strong style="color:var(--fg);font-weight:600">Homely.</strong> A lived-in room — soft daylight, curtains, greenery and a patterned rug. The furniture is styled the way you'd actually keep it, so the buyer pictures it in their own home.</p></div>
       <div class="rx-copy" data-dir-copy="studio" hidden><p style="font-size:16.5px;line-height:1.7;color:var(--fg-dim)"><strong style="color:var(--fg);font-weight:600">Studio.</strong> A clean white set and an elegant serif wordmark. Every piece lined up and evenly lit — the crisp, catalogue-grade view that lets the craftsmanship speak.</p></div>
       <div class="rx-copy" data-dir-copy="cinematic" hidden><p style="font-size:16.5px;line-height:1.7;color:var(--fg-dim)"><strong style="color:var(--fg);font-weight:600">Cinematic.</strong> Golden-hour light rakes across the wall in hard window shadows. Bold, high-contrast and premium — the mood-first frame that stops the scroll.</p></div>
     </div>
 
     <!-- synced grid reveal -->
-    <div class="rx-gridbox" data-stitched="false" style="margin-top:clamp(40px,6vw,70px);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,34px);background:linear-gradient(160deg,var(--surface),var(--bg2))">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px">
-        <div style="max-width:46ch">
+    <div class="rx-gridbox" data-rx-stitch data-sdir="homely" data-stitched="false" style="margin-top:clamp(40px,6vw,70px);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,34px);background:linear-gradient(160deg,var(--surface),var(--bg2))">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:20px">
+        <div style="max-width:44ch">
           <span style="display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px"><span style="width:22px;height:1px;background:var(--accent)"></span>Grid trick</span>
           <h3 style="font-family:var(--font-display);font-weight:700;font-size:clamp(20px,2.4vw,27px);letter-spacing:-.02em;color:var(--fg)">Three posts that read as one</h3>
-          <p style="margin-top:8px;font-size:14.5px;line-height:1.6;color:var(--fg-dim)">Each carousel's cover is one-third of a wider scene. Posted in order, they line up across the profile row into a single storefront. Toggle to watch the three covers close the gap.</p>
+          <p style="margin-top:8px;font-size:14.5px;line-height:1.6;color:var(--fg-dim)">Each carousel's cover is one-third of a wider scene — posted in order they line up across the profile row into one storefront. This preview cycles all three vibes; hover to pause, or toggle the covers apart.</p>
         </div>
-        <button data-stitch-btn aria-pressed="false" data-magnetic="0.15" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--accent-ink);border:none;padding:12px 22px;border-radius:100px;font-weight:600;font-size:14.5px;flex-shrink:0"><span data-stitch-label>Stitch the covers</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        <div class="rx-autocol" style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;flex-shrink:0">
+          <span class="rx-auto"><i></i>Auto · <span data-svibe-label style="color:var(--fg);font-weight:600">Homely</span></span>
+          <div class="rx-vibes" role="group" aria-label="Preview vibe">
+            <button class="rx-vibe" data-svibe="homely" aria-pressed="true">Homely</button>
+            <button class="rx-vibe" data-svibe="studio" aria-pressed="false">Studio</button>
+            <button class="rx-vibe" data-svibe="cinematic" aria-pressed="false">Cinematic</button>
+          </div>
+          <button data-stitch-btn aria-pressed="false" data-magnetic="0.15" style="display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:var(--accent-ink);border:none;padding:12px 22px;border-radius:100px;font-weight:600;font-size:14.5px;flex-shrink:0"><span data-stitch-label>Stitch the covers</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg></button>
+        </div>
       </div>
       <div style="position:relative">
         <div class="rx-grid">
@@ -389,48 +407,96 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 
 <script>
 (function(){
+  var CAP=function(s){return s.charAt(0).toUpperCase()+s.slice(1);};
+
+  /* ---- 1) Directions: big panorama + copy, smooth blur crossfade ---- */
   var root=document.querySelector('[data-rx]');
   if(root){
     var current=root.getAttribute('data-dir')||'homely';
     var pano=document.getElementById('rxPano');
-    var cells=[].slice.call(document.querySelectorAll('.rx-cell-img'));
-    function swap(img,src){ if(!img)return; img.style.opacity='0'; var pre=new Image(); pre.onload=function(){ img.src=src; img.style.opacity='1'; }; pre.onerror=function(){ img.src=src; img.style.opacity='1'; }; pre.src=src; }
-    function setDir(dir){
-      if(dir===current) { syncTabs(dir); return; }
-      current=dir; root.setAttribute('data-dir',dir);
-      syncTabs(dir);
-      swap(pano,'assets/remax/grid-'+dir+'.jpg');
-      cells.forEach(function(im,i){ swap(im,'assets/remax/'+dir+'-'+(i+1)+'-1.jpg'); });
-      document.querySelectorAll('[data-dir-copy]').forEach(function(c){ c.hidden=c.getAttribute('data-dir-copy')!==dir; });
-    }
     function syncTabs(dir){ document.querySelectorAll('[data-setdir]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-setdir')===dir?'true':'false'); }); }
+    function setDir(dir){
+      if(dir===current){ syncTabs(dir); return; }
+      current=dir; syncTabs(dir);
+      root.classList.add('rx-swapping');
+      var src='assets/remax/grid-'+dir+'.jpg', applied=false;
+      function apply(){ if(applied)return; applied=true;
+        if(pano) pano.src=src;
+        document.querySelectorAll('[data-dir-copy]').forEach(function(c){ c.hidden=c.getAttribute('data-dir-copy')!==dir; });
+        root.setAttribute('data-dir',dir);
+        setTimeout(function(){ root.classList.remove('rx-swapping'); },40);
+      }
+      var pre=new Image(); pre.onload=pre.onerror=function(){ setTimeout(apply,300); }; pre.src=src;
+      setTimeout(apply,750);
+    }
     document.querySelectorAll('[data-setdir]').forEach(function(b){ b.addEventListener('click',function(){ setDir(b.getAttribute('data-setdir')); }); });
-
-    var grid=document.querySelector('.rx-grid'), box=document.querySelector('.rx-gridbox'), sBtn=document.querySelector('[data-stitch-btn]');
-    if(grid&&sBtn){ sBtn.addEventListener('click',function(){
-      var on=grid.classList.toggle('stitched');
-      if(box) box.setAttribute('data-stitched', on?'true':'false');
-      sBtn.setAttribute('aria-pressed', on?'true':'false');
-      var lbl=sBtn.querySelector('[data-stitch-label]'); if(lbl) lbl.textContent=on?'View as grid':'Stitch the covers';
-    }); }
   }
 
+  /* ---- 2) Stitch box: own vibe state, auto-cycles ALL vibes, + stitch toggle ---- */
+  var box=document.querySelector('[data-rx-stitch]');
+  if(box){
+    var order=['homely','studio','cinematic'];
+    var sdir=box.getAttribute('data-sdir')||'homely';
+    var cells=[].slice.call(box.querySelectorAll('.rx-cell-img'));
+    var grid=box.querySelector('.rx-grid');
+    var label=box.querySelector('[data-svibe-label]');
+    var timer=null, paused=false;
+    function syncVibes(){ box.querySelectorAll('[data-svibe]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-svibe')===sdir?'true':'false'); }); if(label) label.textContent=CAP(sdir); }
+    function setSDir(dir,fromUser){
+      if(dir===sdir){ syncVibes(); return; }
+      sdir=dir; box.setAttribute('data-sdir',dir); syncVibes();
+      box.classList.add('sw');
+      var s=[1,2,3].map(function(n){return 'assets/remax/'+dir+'-'+n+'-1.jpg';}), applied=false;
+      function apply(){ if(applied)return; applied=true; cells.forEach(function(im,i){ im.src=s[i]; }); setTimeout(function(){ box.classList.remove('sw'); },40); }
+      var pre=new Image(); pre.onload=pre.onerror=function(){ setTimeout(apply,270); }; pre.src=s[1];
+      setTimeout(apply,700);
+      if(fromUser) restart();
+    }
+    function next(){ setSDir(order[(order.indexOf(sdir)+1)%order.length]); }
+    function start(){ if(!timer) timer=setInterval(function(){ if(!paused) next(); },3200); }
+    function stop(){ clearInterval(timer); timer=null; }
+    function restart(){ stop(); start(); }
+    box.querySelectorAll('[data-svibe]').forEach(function(b){ b.addEventListener('click',function(){ setSDir(b.getAttribute('data-svibe'),true); }); });
+    var sBtn=box.querySelector('[data-stitch-btn]');
+    if(sBtn&&grid){ sBtn.addEventListener('click',function(){
+      var on=grid.classList.toggle('stitched');
+      box.setAttribute('data-stitched', on?'true':'false');
+      sBtn.setAttribute('aria-pressed', on?'true':'false');
+      var l=sBtn.querySelector('[data-stitch-label]'); if(l) l.textContent=on?'View as grid':'Stitch the covers';
+    }); }
+    box.addEventListener('mouseenter',function(){ paused=true; });
+    box.addEventListener('mouseleave',function(){ paused=false; });
+    box.addEventListener('focusin',function(){ paused=true; });
+    box.addEventListener('focusout',function(){ paused=false; });
+    syncVibes(); start();
+  }
+
+  /* ---- filters ---- */
   var gallery=document.querySelector('.rx-gallery');
   document.querySelectorAll('[data-filter]').forEach(function(b){ b.addEventListener('click',function(){
     if(gallery) gallery.setAttribute('data-filter', b.getAttribute('data-filter'));
     document.querySelectorAll('[data-filter]').forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
   }); });
 
+  /* ---- 3) Carousels: dots + arrows + auto-slide while hovered ---- */
+  var canHover = window.matchMedia && matchMedia('(hover:hover)').matches;
   [].slice.call(document.querySelectorAll('.rx-post')).forEach(function(post){
     var track=post.querySelector('.rx-track'); if(!track) return;
     var dots=[].slice.call(post.querySelectorAll('.rx-dot'));
+    var count=post.querySelectorAll('.rx-track img').length||1;
     function idx(){ return track.clientWidth? Math.round(track.scrollLeft/track.clientWidth):0; }
-    function go(d){ track.scrollTo({left:(idx()+d)*track.clientWidth, behavior:'smooth'}); }
+    function to(i){ track.scrollTo({left:i*track.clientWidth, behavior:'smooth'}); }
+    function go(d){ to((idx()+d+count)%count); }
     var p=post.querySelector('[data-prev]'), n=post.querySelector('[data-next]');
     if(p) p.addEventListener('click',function(){go(-1);});
     if(n) n.addEventListener('click',function(){go(1);});
-    dots.forEach(function(dt,k){ dt.addEventListener('click',function(){ track.scrollTo({left:k*track.clientWidth,behavior:'smooth'}); }); });
+    dots.forEach(function(dt,k){ dt.addEventListener('click',function(){ to(k); }); });
     track.addEventListener('scroll',function(){ clearTimeout(track._t); track._t=setTimeout(function(){ var i=idx(); dots.forEach(function(dt,k){ dt.setAttribute('aria-current', k===i?'true':'false'); }); },60); },{passive:true});
+    if(canHover){
+      var hv=null;
+      post.addEventListener('mouseenter',function(){ clearInterval(hv); hv=setInterval(function(){ to((idx()+1)%count); },1300); });
+      post.addEventListener('mouseleave',function(){ clearInterval(hv); to(0); });
+    }
   });
 })();
 if (window.PF) PF.init();
