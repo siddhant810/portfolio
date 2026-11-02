@@ -21,6 +21,29 @@ a:hover{color:var(--accent)}
 button{font-family:inherit;cursor:pointer}
 ::selection{background:var(--accent);color:var(--accent-ink)}
 h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
+/* short-form reel player + ebook */
+.sk-feature{display:grid;grid-template-columns:300px 1fr;gap:clamp(24px,3.4vw,40px);align-items:center;border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--surface)}
+.sk-player{position:relative;aspect-ratio:9/16;width:100%;max-height:540px;border-radius:16px;overflow:hidden;background:#000;margin:0 auto}
+.sk-player video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+.sk-play{position:absolute;inset:0;display:grid;place-items:center;border:none;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.34))}
+.sk-play em{width:clamp(60px,8vw,78px);height:clamp(60px,8vw,78px);border-radius:50%;background:color-mix(in srgb,var(--accent) 94%,transparent);display:grid;place-items:center;box-shadow:0 16px 50px -10px var(--glow);transition:transform .3s ease}
+.sk-play:hover em{transform:scale(1.08)}
+.sk-play[hidden]{display:none}
+.ape-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+@media(max-width:720px){.ape-strip{grid-template-columns:repeat(3,1fr)}.sk-feature{grid-template-columns:1fr}.sk-player{max-width:300px}}
+.ape-strip button{padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);cursor:pointer;aspect-ratio:4/5}
+.ape-strip img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,.7,.2,1)}
+.ape-strip button:hover img{transform:scale(1.05)}
+.eb-feature{display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,3.4vw,44px);align-items:center;border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--surface)}
+@media(max-width:720px){.eb-feature{grid-template-columns:1fr}}
+.eb-cover{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 50px -22px rgba(0,0,0,.7);background:#000}
+.eb-cover img{width:100%;display:block;aspect-ratio:1/1.414;object-fit:cover;transition:transform .7s cubic-bezier(.16,.7,.2,1)}
+.eb-cover:hover img{transform:scale(1.04)}
+.eb-thumbs{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:18px}
+@media(max-width:720px){.eb-thumbs{grid-template-columns:repeat(3,1fr)}}
+.eb-thumbs button{padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);cursor:pointer;aspect-ratio:1/1.414}
+.eb-thumbs img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,.7,.2,1)}
+.eb-thumbs button:hover img{transform:scale(1.05)}
 </style>
 <link rel="stylesheet" href="portfolio.css">
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
@@ -42,6 +65,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 
   <div data-desktop style="display:flex;align-items:center;gap:clamp(10px,2vw,34px)">
     <a href="work.html" class="hv-fg" style="position:relative;padding:8px 2px;color:var(--fg-dim);font-size:14.5px;font-weight:500">Work<span style="position:absolute;left:50%;bottom:-3px;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--glow)"></span></a>
+    <a href="index.html#ai" class="hv-fg" style="position:relative;padding:8px 2px;font-size:14.5px;font-weight:700;background:linear-gradient(100deg,#9b8bff,#43e0ff);-webkit-background-clip:text;background-clip:text;color:transparent">AI</a>
     <a href="about.html" class="hv-fg" style="position:relative;padding:8px 2px;color:var(--fg-dim);font-size:14.5px;font-weight:500">About</a>
     <a href="contact.html" class="hv-fg" style="position:relative;padding:8px 2px;color:var(--fg-dim);font-size:14.5px;font-weight:500">Contact</a>
   </div>
@@ -64,6 +88,7 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   <span style="font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:600;font-family:var(--font-mono);margin-bottom:14px">Menu</span>
   <a href="index.html" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);color:var(--fg);letter-spacing:-.02em;line-height:1.1">Home</a>
   <a href="work.html" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);color:var(--fg);letter-spacing:-.02em;line-height:1.1">Work</a>
+  <a href="index.html#ai" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);letter-spacing:-.02em;line-height:1.1;background:linear-gradient(100deg,#9b8bff,#43e0ff);-webkit-background-clip:text;background-clip:text;color:transparent;width:max-content">AI</a>
   <a href="about.html" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);color:var(--fg);letter-spacing:-.02em;line-height:1.1">About</a>
   <a href="contact.html" style="font-family:var(--font-display);font-weight:700;font-size:clamp(38px,11vw,64px);color:var(--fg);letter-spacing:-.02em;line-height:1.1">Contact</a>
   <div style="display:flex;gap:22px;margin-top:34px;flex-wrap:wrap">
@@ -86,6 +111,21 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
     <span style="flex:1;height:1px;background:var(--line)"></span>
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px">
+    <div data-tile data-reveal class="hv-card45" style="display:flex;flex-direction:column;color:var(--fg);border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--surface)">
+      <a data-cursor="View case study" href="flex-academy-case-study.html" style="display:block;position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--surface2)">
+        <img data-tile-img src="assets/flex/flex-card.svg" alt="Flex Academy — landing page and booking flows in Figma" loading="lazy" style="width:100%;height:100%;object-fit:cover"/>
+        <span style="position:absolute;top:16px;left:16px;display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:100px;background:color-mix(in srgb,var(--bg) 55%,transparent);backdrop-filter:blur(10px);border:1px solid var(--line);font-size:11.5px;font-weight:600;color:var(--fg)">● Made in Figma</span>
+      </a>
+      <div style="padding:26px 26px 28px;display:flex;flex-direction:column;gap:12px;flex:1">
+        <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono)">UI/UX · Landing Page</span>
+        <h3 style="font-family:var(--font-display);font-weight:700;font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em;line-height:1.02;color:var(--fg)"><a href="flex-academy-case-study.html" data-cursor="View case study" style="color:var(--fg)">Flex Academy</a></h3>
+        <p style="color:var(--fg-dim);font-size:14.5px;line-height:1.6">One landing page for two audiences — a Launch path for beginners and a Scale path for operators, each with its own booking flow. Designed end-to-end in Figma.</p>
+        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:auto;padding-top:12px">
+          <a href="flex-academy-case-study.html" data-cursor="View case study" style="display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:600;font-size:14px">Read case study <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="https://www.figma.com/design/RAc03hj6SdfqxvhETOToKj/Flex-Academy-%7C-Landing-Page-%7C-Siddhant-Gaikwad?node-id=0-1" target="_blank" rel="noopener" data-no-wipe data-cursor="Open ↗" class="hv-accent" style="display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-weight:500;font-size:13.5px">Open in Figma <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>
+        </div>
+      </div>
+    </div>
     <div data-tile data-reveal class="hv-card45" style="display:flex;flex-direction:column;color:var(--fg);border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--surface)">
       <a data-cursor="View case study" href="smartsanstha-case-study.html" style="display:block;position:relative;aspect-ratio:16/11;overflow:hidden;background:var(--surface2)">
         <img data-tile-img src="assets/smartsanstha.jpg" alt="SmartSanstha" loading="lazy" style="width:100%;height:100%;object-fit:cover"/>
@@ -227,8 +267,42 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
     </div>
   </a>
 
-  <div data-reveal style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin-bottom:18px">Short-form video</div>
-  <div data-reveal style="display:grid;grid-template-columns:320px 1fr;gap:34px;align-items:center;border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--surface)" data-stack>
+  <div data-reveal style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin-bottom:18px">Video editing · Short-form</div>
+
+  <!-- Skinox reel (APE Marketing assignment) -->
+  <div data-reveal class="sk-feature" data-stack style="margin-bottom:22px">
+    <div class="sk-player">
+      <video id="skVid" playsinline preload="none" controls poster="assets/skinox/skinox-poster.jpg">
+        <source src="assets/skinox/skinox-reel.mp4" type="video/mp4">
+      </video>
+      <button class="sk-play" aria-label="Play the Skinox reel"><em><svg width="26" height="26" viewBox="0 0 24 24" fill="var(--accent-ink)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></em></button>
+    </div>
+    <div>
+      <span style="font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;font-family:var(--font-mono)">APE Marketing — Assignment</span>
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;color:var(--fg);margin:12px 0 14px">Skinox "Regrow" — a UGC ad reel</h3>
+      <p style="color:var(--fg-dim);font-size:15px;line-height:1.65;max-width:54ch">A short-form ad edit for Skinox's hair-regrowth serum — a pharmacist-led UGC hook cut against product b-roll, with kinetic captions and ingredient call-outs ("Australian Rosemary", "No Sulfates") to keep the thumb from scrolling. Cut as my assignment for APE Marketing.</p>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:18px">
+        <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">Video Editing</span>
+        <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">Kinetic Captions</span>
+        <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">UGC Ad</span>
+        <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">1:07 · 1080p</span>
+      </div>
+      <p style="color:var(--muted);font-size:13px;margin-top:16px">↓ The campaign carousel below breaks down how this reel was built.</p>
+    </div>
+  </div>
+
+  <div data-reveal style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin:0 0 14px">The campaign carousel — about the reel</div>
+  <div data-reveal class="ape-strip" style="margin-bottom:56px">
+    <button data-cursor="View 6 slides" onclick="pfLbOpen('ape',0)" aria-label="APE Marketing carousel slide 1"><img src="assets/skinox/ape01.jpg" alt="APE Marketing — Skinox reel carousel, cover" loading="lazy"/></button>
+    <button data-cursor="View 6 slides" onclick="pfLbOpen('ape',1)" aria-label="APE Marketing carousel slide 2"><img src="assets/skinox/ape02.jpg" alt="APE Marketing — Skinox reel carousel, slide 2" loading="lazy"/></button>
+    <button data-cursor="View 6 slides" onclick="pfLbOpen('ape',2)" aria-label="APE Marketing carousel slide 3"><img src="assets/skinox/ape03.jpg" alt="APE Marketing — Skinox reel carousel, slide 3" loading="lazy"/></button>
+    <button data-cursor="View 6 slides" onclick="pfLbOpen('ape',3)" aria-label="APE Marketing carousel slide 4"><img src="assets/skinox/ape04.jpg" alt="APE Marketing — Skinox reel carousel, slide 4" loading="lazy"/></button>
+    <button data-cursor="View 6 slides" onclick="pfLbOpen('ape',4)" aria-label="APE Marketing carousel slide 5"><img src="assets/skinox/ape05.jpg" alt="APE Marketing — Skinox reel carousel, slide 5" loading="lazy"/></button>
+    <button data-cursor="View 6 slides" onclick="pfLbOpen('ape',5)" aria-label="APE Marketing carousel slide 6"><img src="assets/skinox/ape06.jpg" alt="APE Marketing — Skinox reel carousel, slide 6" loading="lazy"/></button>
+  </div>
+
+  <div data-reveal style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin-bottom:18px">Short-form video — motion</div>
+  <div data-reveal style="display:grid;grid-template-columns:320px 1fr;gap:34px;align-items:center;border:1px solid var(--line);border-radius:22px;padding:22px;background:var(--surface);margin-bottom:56px" data-stack>
     <div style="position:relative;aspect-ratio:9/16;max-height:440px;border-radius:16px;overflow:hidden;background:#000">
       <img src="assets/fitmaize_thumb.jpg" alt="Fitmaize brand reel" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:.92"/>
       <span style="position:absolute;inset:0;display:grid;place-items:center"><span style="width:66px;height:66px;border-radius:50%;background:color-mix(in srgb,var(--accent) 92%,transparent);display:grid;place-items:center;box-shadow:0 10px 40px -8px var(--glow)"><svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent-ink)"><path d="M8 5v14l11-7z"/></svg></span></span>
@@ -241,6 +315,35 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
         <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">Canva Animate</span>
         <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">Motion Design</span>
         <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">Reels / Stories</span>
+      </div>
+    </div>
+  </div>
+
+  <div data-reveal style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-family:var(--font-mono);margin-bottom:18px">Ebook · Lead magnet</div>
+  <div data-reveal class="eb-feature" data-stack>
+    <button class="eb-cover" data-cursor="Open 7 pages" onclick="pfLbOpen('ebook',0)" aria-label="Open Claude AI ebook preview" style="padding:0;border:1px solid var(--line)">
+      <img src="assets/ebook/eb01.jpg" alt="Claude AI for Engineering Students — ebook cover" loading="lazy"/>
+    </button>
+    <div>
+      <span style="font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;font-family:var(--font-mono)">Ebook · Content Design</span>
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;color:var(--fg);margin:12px 0 14px">Claude AI for Engineering Students</h3>
+      <p style="color:var(--fg-dim);font-size:15px;line-height:1.65;max-width:56ch">A 35-page ebook — "50 Powerful Prompts to Study Smarter" — designed cover to cover: a 3D-lit cover, a 10-chapter structure, 50 ready-to-use prompt cards, chapter summaries, and a quick-reference cheatsheet, all on one warm, consistent system.</p>
+      <div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:18px">
+        <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">Layout &amp; Editorial</span>
+        <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">35 pages</span>
+        <span style="padding:7px 14px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--muted)">Canva</span>
+      </div>
+      <div class="eb-thumbs">
+        <button data-cursor="Open" onclick="pfLbOpen('ebook',1)" aria-label="Ebook — table of contents"><img src="assets/ebook/eb02.jpg" alt="Ebook — table of contents" loading="lazy"/></button>
+        <button data-cursor="Open" onclick="pfLbOpen('ebook',2)" aria-label="Ebook — how to use"><img src="assets/ebook/eb04.jpg" alt="Ebook — quick tips page" loading="lazy"/></button>
+        <button data-cursor="Open" onclick="pfLbOpen('ebook',3)" aria-label="Ebook — prompt cards"><img src="assets/ebook/eb06.jpg" alt="Ebook — prompt cards" loading="lazy"/></button>
+        <button data-cursor="Open" onclick="pfLbOpen('ebook',4)" aria-label="Ebook — chapter divider"><img src="assets/ebook/eb16.jpg" alt="Ebook — coding chapter divider" loading="lazy"/></button>
+        <button data-cursor="Open" onclick="pfLbOpen('ebook',5)" aria-label="Ebook — closing page"><img src="assets/ebook/eb33.jpg" alt="Ebook — you've got this page" loading="lazy"/></button>
+        <button data-cursor="Open" onclick="pfLbOpen('ebook',6)" aria-label="Ebook — cheatsheet"><img src="assets/ebook/eb35.jpg" alt="Ebook — quick reference cheatsheet" loading="lazy"/></button>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:20px">
+        <a href="assets/ebook/claude-ebook.pdf" target="_blank" rel="noopener" data-no-wipe data-cursor="Open PDF ↗" style="display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:600;font-size:14px">Read the full ebook (PDF) <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg></a>
+        <button onclick="pfLbOpen('ebook',0)" data-cursor="7 pages" class="hv-accent" style="background:none;border:none;display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-weight:500;font-size:13.5px">View sample pages</button>
       </div>
     </div>
   </div>
@@ -324,6 +427,16 @@ var PF_LB_GROUPS = {
     { img: 'assets/blog_tech.jpg', title: 'Tech' },
     { img: 'assets/blog_lifestyle.jpg', title: 'Lifestyle' },
     { img: 'assets/blog_finance.jpg', title: 'Finance' }
+  ],
+  ape: [1, 2, 3, 4, 5, 6].map(function (i) { return { img: 'assets/skinox/ape0' + i + '.jpg', title: 'APE Marketing — Skinox reel carousel · ' + i + '/6' }; }),
+  ebook: [
+    { img: 'assets/ebook/eb01.jpg', title: 'Claude AI for Engineering Students — Cover' },
+    { img: 'assets/ebook/eb02.jpg', title: 'Table of Contents' },
+    { img: 'assets/ebook/eb04.jpg', title: 'Quick Tips for Better Results' },
+    { img: 'assets/ebook/eb06.jpg', title: 'Prompt Cards' },
+    { img: 'assets/ebook/eb16.jpg', title: 'Chapter — Coding, Debugging & Projects' },
+    { img: 'assets/ebook/eb33.jpg', title: 'You\'ve Got This' },
+    { img: 'assets/ebook/eb35.jpg', title: 'Quick Reference Cheatsheet' }
   ]
 };
 var pfLbList = null, pfLbIdx = 0;
@@ -352,6 +465,14 @@ window.addEventListener('keydown', function (e) {
   else if (e.key === 'ArrowLeft') pfLbStep(-1);
 });
 
+(function(){
+  var v=document.getElementById('skVid'), ov=document.querySelector('.sk-play');
+  if(v&&ov){
+    ov.addEventListener('click',function(){ try{ v.play(); }catch(e){} });
+    v.addEventListener('play',function(){ ov.hidden=true; });
+    v.addEventListener('ended',function(){ ov.hidden=false; });
+  }
+})();
 if (window.PF) PF.init();
 addEventListener('load', function () { if (window.PF) PF.init(); });
 </script>

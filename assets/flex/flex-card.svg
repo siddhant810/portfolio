@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" font-family="'Hanken Grotesk','Segoe UI',Arial,sans-serif">
+  <defs>
+    <linearGradient id="fc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6f1e6"/>
+      <stop offset="1" stop-color="#efe7d6"/>
+    </linearGradient>
+    <linearGradient id="fc-greenbtn" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c6b4f"/>
+      <stop offset="1" stop-color="#0f4e39"/>
+    </linearGradient>
+    <linearGradient id="fc-indigo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5850ec"/>
+      <stop offset="1" stop-color="#4338ca"/>
+    </linearGradient>
+    <linearGradient id="fc-photo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cfe0d2"/>
+      <stop offset="1" stop-color="#b7ccbb"/>
+    </linearGradient>
+    <filter id="fc-sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="30" flood-color="#1a3a2c" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#fc-bg)"/>
+  <!-- soft brand blobs -->
+  <circle cx="1340" cy="120" r="240" fill="#1c6b4f" opacity="0.07"/>
+  <circle cx="160" cy="820" r="200" fill="#4338ca" opacity="0.06"/>
+
+  <!-- browser window -->
+  <g filter="url(#fc-sh)">
+    <rect x="120" y="96" width="1360" height="708" rx="26" fill="#fffdf8"/>
+  </g>
+  <rect x="120" y="96" width="1360" height="64" rx="26" fill="#ece3d2"/>
+  <rect x="120" y="138" width="1360" height="22" fill="#ece3d2"/>
+  <circle cx="162" cy="128" r="8" fill="#e06a5a"/>
+  <circle cx="190" cy="128" r="8" fill="#e8b74a"/>
+  <circle cx="218" cy="128" r="8" fill="#5bbd82"/>
+  <rect x="560" y="114" width="480" height="28" rx="14" fill="#fffdf8"/>
+  <text x="800" y="133" text-anchor="middle" font-size="16" fill="#8a8575" letter-spacing="0.5">flexacademy.com</text>
+
+  <!-- in-page nav -->
+  <g transform="translate(168,196)">
+    <circle cx="14" cy="14" r="14" fill="url(#fc-greenbtn)"/>
+    <text x="13" y="20" text-anchor="middle" font-size="17" font-weight="800" fill="#f6f1e6">F</text>
+    <text x="42" y="20" font-size="19" font-weight="800" fill="#153d2e">Flex Academy</text>
+    <rect x="980" y="-4" width="116" height="36" rx="18" fill="url(#fc-greenbtn)"/>
+    <text x="1038" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="#f6f1e6">Get started</text>
+    <text x="700" y="20" font-size="15" fill="#5c6b61" font-weight="600">Curriculum</text>
+    <text x="840" y="20" font-size="15" fill="#5c6b61" font-weight="600">Founders</text>
+  </g>
+
+  <!-- hero copy -->
+  <g transform="translate(168,300)">
+    <rect x="0" y="0" width="300" height="34" rx="17" fill="#e7efe6" stroke="#cfe0d2"/>
+    <circle cx="24" cy="17" r="5" fill="#1c6b4f"/>
+    <text x="42" y="22" font-size="14" font-weight="700" fill="#1c6b4f" letter-spacing="1">THE FLEX × BASE360</text>
+
+    <text x="0" y="112" font-size="66" font-weight="800" fill="#13352a" letter-spacing="-2">Build a short-term</text>
+    <text x="0" y="178" font-size="66" font-weight="800" fill="#13352a" letter-spacing="-2">rental business.</text>
+    <text x="0" y="238" font-size="26" fill="#55645b" font-weight="500">Without figuring it all out alone.</text>
+
+    <!-- two path buttons -->
+    <g transform="translate(0,286)">
+      <rect x="0" y="0" width="286" height="62" rx="31" fill="url(#fc-greenbtn)"/>
+      <text x="40" y="33" font-size="18" font-weight="800" fill="#f6f1e6">01 · Launch</text>
+      <text x="40" y="50" font-size="13" fill="#bfe0cd">Free webinar for beginners</text>
+      <path d="M232 31 h18 m-7 -7 l7 7 l-7 7" stroke="#bfe0cd" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <rect x="306" y="0" width="286" height="62" rx="31" fill="#fffdf8" stroke="#4338ca" stroke-width="2"/>
+      <text x="346" y="33" font-size="18" font-weight="800" fill="#4338ca">02 · Scale</text>
+      <text x="346" y="50" font-size="13" fill="#6b64c9">Strategy call for operators</text>
+    </g>
+  </g>
+
+  <!-- right visual: photo + dashboard card -->
+  <g transform="translate(980,250)">
+    <rect x="0" y="0" width="420" height="300" rx="20" fill="url(#fc-photo)"/>
+    <circle cx="120" cy="120" r="46" fill="#ffffff" opacity="0.55"/>
+    <rect x="70" y="190" width="280" height="16" rx="8" fill="#ffffff" opacity="0.5"/>
+    <rect x="70" y="220" width="190" height="16" rx="8" fill="#ffffff" opacity="0.4"/>
+    <!-- floating dashboard card (Base360 / indigo) -->
+    <g transform="translate(176,196)" filter="url(#fc-sh)">
+      <rect x="0" y="0" width="300" height="190" rx="16" fill="#fffdf8"/>
+      <rect x="0" y="0" width="300" height="46" rx="16" fill="url(#fc-indigo)"/>
+      <rect x="0" y="30" width="300" height="16" fill="url(#fc-indigo)"/>
+      <text x="18" y="29" font-size="14" font-weight="800" fill="#ffffff">Base360 · Occupancy</text>
+      <rect x="18" y="70" width="60" height="96" rx="6" fill="#e7efe6"/>
+      <rect x="18" y="110" width="60" height="56" rx="6" fill="#1c6b4f"/>
+      <rect x="92" y="70" width="60" height="96" rx="6" fill="#e7efe6"/>
+      <rect x="92" y="92" width="60" height="74" rx="6" fill="#1c6b4f"/>
+      <rect x="166" y="70" width="60" height="96" rx="6" fill="#e7efe6"/>
+      <rect x="166" y="120" width="60" height="46" rx="6" fill="#1c6b4f"/>
+      <rect x="240" y="70" width="44" height="96" rx="6" fill="#eceaff"/>
+      <rect x="240" y="84" width="44" height="82" rx="6" fill="#4338ca"/>
+    </g>
+  </g>
+</svg>
