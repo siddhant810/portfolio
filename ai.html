@@ -145,15 +145,35 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
       <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.03;letter-spacing:-.03em;color:#f5f1e8;margin-top:20px">A luxury perfume ad — <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;background:linear-gradient(100deg,#f3dba6,#cf9a34);-webkit-background-clip:text;background-clip:text;color:transparent">made end-to-end with AI</span></h2>
       <p style="margin:16px auto 0;font-size:clamp(15px,1.7vw,18px);line-height:1.6;color:#bcb4a4;max-width:60ch">"AUREL Nocturne" — a sample product film I directed through a fully AI pipeline, to show what AI-first creative can ship: cinematic, on-brand, and fast.</p>
     </div>
-    <div class="av-player" data-reveal style="margin:clamp(28px,4vw,44px) auto 0;max-width:960px">
-      <video class="sk-vid" playsinline preload="none" controls poster="assets/aurel/aurel-poster.jpg"><source src="assets/aurel/aurel-ad.mp4" type="video/mp4"></video>
-      <button class="sk-play" aria-label="Play the AUREL perfume ad"><em><svg width="30" height="30" viewBox="0 0 24 24" fill="var(--accent-ink)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></em></button>
+    <div class="av-player" data-av data-reveal style="margin:clamp(28px,4vw,44px) auto 0;max-width:960px">
+      <video muted loop playsinline preload="metadata" poster="assets/aurel/aurel-poster.jpg"><source src="assets/aurel/aurel-ad.mp4" type="video/mp4"></video>
+      <button class="av-hint" data-av-sound aria-label="Unmute"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>Tap for sound</button>
+      <div class="av-tools">
+        <button class="av-ic av-ic--sound" data-av-sound aria-label="Toggle sound"><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/></svg></button>
+        <button class="av-ic" data-av-fs aria-label="Fullscreen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg></button>
+      </div>
+      <div class="av-bar"><span></span></div>
     </div>
     <div data-reveal style="display:flex;justify-content:center;align-items:center;gap:clamp(14px,2.6vw,30px);flex-wrap:wrap;margin:22px auto 0;max-width:960px">
       <span style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#b9b2a4"><img src="assets/ai/chatgpt.png" alt="ChatGPT" style="width:24px;height:24px;object-fit:contain"><span><b style="color:#efe9dc;font-weight:700">ChatGPT</b> · Visualisation</span></span>
       <span style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#b9b2a4"><img src="assets/ai/claude.png" alt="Claude" style="width:24px;height:24px;object-fit:contain"><span><b style="color:#efe9dc;font-weight:700">Claude</b> · Prompt craft</span></span>
       <span style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#b9b2a4"><img src="assets/ai/gemini.png" alt="Gemini" style="width:24px;height:24px;object-fit:contain"><span><b style="color:#efe9dc;font-weight:700">Gemini</b> · Video generation</span></span>
       <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:#8a8373">0:37 · 1080p</span>
+    </div>
+  </div>
+</section>
+
+<!-- AD CREATIVE: AUREL key visual -->
+<section class="ai-band tone2" data-screen-label="Ad creative">
+  <div class="ai-aurora" aria-hidden="true"><i style="width:40vw;height:40vw;right:-8vw;top:-10vw;background:#c9922f;opacity:.26"></i><i style="width:30vw;height:30vw;left:-6vw;bottom:-12vw;background:#8a5a1e;opacity:.26"></i></div>
+  <div class="ai-in">
+    <div data-reveal style="text-align:center;max-width:62ch;margin:0 auto clamp(26px,3.4vw,40px)">
+      <span class="ai-eyebrow" style="border-color:rgba(217,170,90,.42);color:#eccf8f"><svg width="14" height="14" viewBox="0 0 48 48" fill="#e2b85f" aria-hidden="true"><path d="M24 5 C26 18 30 22 43 24 C30 26 26 30 24 43 C22 30 18 26 5 24 C18 22 22 18 24 5 Z"/></svg>Ad creative · Key visual</span>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(28px,4.6vw,52px);line-height:1.04;letter-spacing:-.03em;color:#f5f1e8;margin-top:18px">The campaign as a <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;background:linear-gradient(100deg,#f3dba6,#cf9a34);-webkit-background-clip:text;background-clip:text;color:transparent">single frame</span></h2>
+      <p style="margin:14px auto 0;font-size:clamp(15px,1.7vw,18px);line-height:1.6;color:#bcb4a4;max-width:58ch">A finished print creative for AUREL Nocturne — art-directed to one hero frame to sit alongside the film, visualised and composed through the same AI pipeline.</p>
+    </div>
+    <div data-reveal data-tilt="2" style="border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden;box-shadow:0 40px 100px -40px rgba(0,0,0,.8);max-width:1120px;margin:0 auto">
+      <img src="assets/aurel/aurel-creative.jpg" alt="AUREL Nocturne — The Evening Fragrance ad creative" loading="lazy" style="width:100%;display:block"/>
     </div>
   </div>
 </section>
@@ -327,12 +347,26 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 </footer>
 
 <script>
-document.querySelectorAll('.sk-play').forEach(function (ov) {
-  var v = ov.parentElement.querySelector('video');
-  if (!v) return;
-  ov.addEventListener('click', function () { try { v.play(); } catch (e) {} });
-  v.addEventListener('play', function () { ov.hidden = true; });
-  v.addEventListener('ended', function () { ov.hidden = false; });
+document.querySelectorAll('[data-av]').forEach(function (p) {
+  var v = p.querySelector('video'), bar = p.querySelector('.av-bar span');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.35 }).observe(p);
+  }
+  v.addEventListener('timeupdate', function () { if (bar && v.duration) bar.style.width = (v.currentTime / v.duration * 100).toFixed(2) + '%'; });
+  function snd(e) { if (e) e.stopPropagation(); v.muted = !v.muted; v.volume = 1; p.classList.toggle('av-on', !v.muted); var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+  p.querySelectorAll('[data-av-sound]').forEach(function (b) { b.addEventListener('click', snd); });
+  v.addEventListener('click', function () { if (v.paused) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } else { v.pause(); } });
+  var fs = p.querySelector('[data-av-fs]');
+  if (fs) fs.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (document.fullscreenElement || document.webkitFullscreenElement) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+    else { (p.requestFullscreen || p.webkitRequestFullscreen || p.msRequestFullscreen).call(p); }
+  });
 });
 if (window.PF) PF.init();
 addEventListener('load', function () { if (window.PF) PF.init(); });
