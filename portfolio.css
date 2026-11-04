@@ -84,6 +84,13 @@ html.lenis, html.lenis body { height: auto; }
 [data-proj]:hover [data-proj-img] { transform: scale(1.05); }
 [data-proj]:hover [data-proj-arrow] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 [data-proj-img] { transition: transform .9s cubic-bezier(.16,.7,.2,1); }
+
+/* ---------- selected-work: two cards per row on desktop ---------- */
+.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(44px, 5vw, 72px) clamp(26px, 3vw, 44px); align-items: start; }
+.work-grid [data-proj] h3 { font-size: clamp(26px, 2.5vw, 34px) !important; }
+.work-grid [data-proj] p { font-size: 15px !important; line-height: 1.6 !important; max-width: 52ch !important; }
+.work-grid [data-proj] [data-proj-arrow] { width: 54px !important; height: 54px !important; }
+.work-grid [data-proj] [data-proj-arrow] svg { width: 19px; height: 19px; }
 [data-tile]:hover [data-tile-img] { transform: scale(1.06); }
 [data-tile-img] { transition: transform .8s cubic-bezier(.16,.7,.2,1); }
 
