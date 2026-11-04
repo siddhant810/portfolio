@@ -136,6 +136,28 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
   <div class="ai-edge" style="position:absolute;bottom:0;left:0"></div>
 </section>
 
+<!-- FEATURED: AUREL AI-made ad -->
+<section class="ai-band" id="featured" data-screen-label="Featured AI ad" style="scroll-margin-top:70px">
+  <div class="ai-aurora" aria-hidden="true"><i style="width:42vw;height:42vw;left:-8vw;top:-10vw;background:#c9922f;opacity:.32"></i><i style="width:34vw;height:34vw;right:-8vw;bottom:-14vw;background:#8a5a1e;opacity:.3"></i></div>
+  <div class="ai-in">
+    <div data-reveal style="text-align:center;max-width:64ch;margin:0 auto">
+      <span class="ai-eyebrow" style="border-color:rgba(217,170,90,.42);color:#eccf8f"><svg width="15" height="15" viewBox="0 0 48 48" fill="#e2b85f" aria-hidden="true"><path d="M24 5 C26 18 30 22 43 24 C30 26 26 30 24 43 C22 30 18 26 5 24 C18 22 22 18 24 5 Z"/></svg>Featured · Fully AI-made</span>
+      <h2 style="font-family:var(--font-display);font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.03;letter-spacing:-.03em;color:#f5f1e8;margin-top:20px">A luxury perfume ad — <span style="font-family:var(--font-serif);font-style:italic;font-weight:400;background:linear-gradient(100deg,#f3dba6,#cf9a34);-webkit-background-clip:text;background-clip:text;color:transparent">made end-to-end with AI</span></h2>
+      <p style="margin:16px auto 0;font-size:clamp(15px,1.7vw,18px);line-height:1.6;color:#bcb4a4;max-width:60ch">"AUREL Nocturne" — a sample product film I directed through a fully AI pipeline, to show what AI-first creative can ship: cinematic, on-brand, and fast.</p>
+    </div>
+    <div class="av-player" data-reveal style="margin:clamp(28px,4vw,44px) auto 0;max-width:960px">
+      <video class="sk-vid" playsinline preload="none" controls poster="assets/aurel/aurel-poster.jpg"><source src="assets/aurel/aurel-ad.mp4" type="video/mp4"></video>
+      <button class="sk-play" aria-label="Play the AUREL perfume ad"><em><svg width="30" height="30" viewBox="0 0 24 24" fill="var(--accent-ink)" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></em></button>
+    </div>
+    <div data-reveal style="display:flex;justify-content:center;align-items:center;gap:clamp(14px,2.6vw,30px);flex-wrap:wrap;margin:22px auto 0;max-width:960px">
+      <span style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#b9b2a4"><img src="assets/ai/chatgpt.png" alt="ChatGPT" style="width:24px;height:24px;object-fit:contain"><span><b style="color:#efe9dc;font-weight:700">ChatGPT</b> · Visualisation</span></span>
+      <span style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#b9b2a4"><img src="assets/ai/claude.png" alt="Claude" style="width:24px;height:24px;object-fit:contain"><span><b style="color:#efe9dc;font-weight:700">Claude</b> · Prompt craft</span></span>
+      <span style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#b9b2a4"><img src="assets/ai/gemini.png" alt="Gemini" style="width:24px;height:24px;object-fit:contain"><span><b style="color:#efe9dc;font-weight:700">Gemini</b> · Video generation</span></span>
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:#8a8373">0:37 · 1080p</span>
+    </div>
+  </div>
+</section>
+
 <!-- TOOLS -->
 <section class="ai-band tone2" data-screen-label="The stack">
   <div class="ai-aurora" aria-hidden="true"><i class="au-c" style="width:34vw;height:34vw;left:-6vw;top:10%;opacity:.3"></i><i class="au-m" style="width:30vw;height:30vw;right:-6vw;bottom:0;opacity:.26"></i></div>
@@ -305,6 +327,13 @@ h1,h2,h3{text-wrap:balance}p{text-wrap:pretty}
 </footer>
 
 <script>
+document.querySelectorAll('.sk-play').forEach(function (ov) {
+  var v = ov.parentElement.querySelector('video');
+  if (!v) return;
+  ov.addEventListener('click', function () { try { v.play(); } catch (e) {} });
+  v.addEventListener('play', function () { ov.hidden = true; });
+  v.addEventListener('ended', function () { ov.hidden = false; });
+});
 if (window.PF) PF.init();
 addEventListener('load', function () { if (window.PF) PF.init(); });
 </script>
