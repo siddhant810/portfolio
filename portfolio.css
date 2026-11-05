@@ -91,6 +91,39 @@ html.lenis, html.lenis body { height: auto; }
 .work-grid [data-proj] p { font-size: 15px !important; line-height: 1.6 !important; max-width: 52ch !important; }
 .work-grid [data-proj] [data-proj-arrow] { width: 54px !important; height: 54px !important; }
 .work-grid [data-proj] [data-proj-arrow] svg { width: 19px; height: 19px; }
+
+/* ---------- AI campaign pipeline (process flow) ---------- */
+.pipe-flow { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 11px 7px; margin-top: clamp(26px, 3.5vw, 42px); }
+.pipe-flow .node { display: inline-flex; align-items: center; gap: 9px; padding: 9px 16px 9px 11px; border-radius: 100px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.13); transition: border-color .35s ease, background .35s ease, transform .35s ease; }
+.pipe-flow .node:hover { border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.08); transform: translateY(-2px); }
+.pipe-flow .node img { width: 22px; height: 22px; object-fit: contain; }
+.pipe-flow .node b { font-size: 13px; color: #eef0fb; font-weight: 600; letter-spacing: -.01em; }
+.pipe-flow .node small { display: block; font-size: 10px; color: #8a90ab; font-family: var(--font-mono); letter-spacing: .06em; text-transform: uppercase; margin-top: 1px; }
+.pipe-flow .arr { color: #6a6f88; flex: 0 0 auto; display: grid; place-items: center; }
+.pipe-flow .arr svg { width: 15px; height: 15px; }
+
+.pipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(22px, 3vw, 34px); }
+@media (max-width: 820px) { .pipe-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .pipe-grid { grid-template-columns: 1fr; } }
+.pipe-card { position: relative; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.012)); padding: 22px 20px; overflow: hidden; transition: transform .5s cubic-bezier(.16,.7,.2,1), border-color .4s ease; }
+.pipe-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--pipe-accent, linear-gradient(90deg, #7c5cff, #22d3ee)); opacity: .9; }
+.pipe-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,.22); }
+.pipe-card .hd { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; }
+.pipe-card .ico { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); flex: 0 0 auto; }
+.pipe-card .ico img { width: 28px; height: 28px; object-fit: contain; }
+.pipe-card .num { margin-left: auto; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: #757b96; }
+.pipe-card h4 { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: #f4f5ff; letter-spacing: -.01em; line-height: 1.1; }
+.pipe-card h4 span { font-weight: 500; font-size: 12.5px; color: #8089a6; }
+.pipe-card .role { display: inline-block; margin-top: 10px; font-size: 11.5px; font-weight: 600; letter-spacing: .02em; color: #d7dbf0; padding: 4px 11px; border-radius: 100px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.13); }
+.pipe-card p { margin-top: 12px; font-size: 13.5px; line-height: 1.58; color: #a6adc8; }
+
+/* ---------- BREWHAUS out-of-home mockups ---------- */
+.bh-ooh { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 18px; align-items: center; max-width: 1120px; margin: 0 auto; }
+@media (max-width: 720px) { .bh-ooh { grid-template-columns: 1fr; } }
+.bh-frame { border: 1px solid rgba(255,255,255,.1); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 80px -42px rgba(0,0,0,.85); background: #0c0a10; }
+.bh-frame img { width: 100%; display: block; }
+.bh-cap { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #8a8373; margin-top: 11px; display: flex; align-items: center; gap: 8px; }
+.bh-cap::before { content: ""; width: 14px; height: 1px; background: currentColor; opacity: .6; }
 [data-tile]:hover [data-tile-img] { transform: scale(1.06); }
 [data-tile-img] { transition: transform .8s cubic-bezier(.16,.7,.2,1); }
 
